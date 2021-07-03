@@ -4,12 +4,14 @@ import VueRouter from "vue-router";
 Vue.use(VueRouter)
  
 import demoRoutes from './views/demo/router';
+import homeRoutes from './views/home/router';
 
 const routes = [
   {
     path:'/',
-    redirect:'/demo'
+    redirect:'/home'
   },
+  ...homeRoutes,
   ...demoRoutes,
 ];
 
