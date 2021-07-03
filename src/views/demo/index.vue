@@ -1,9 +1,10 @@
 <template lang='pug'>
-  p.demo this is the demo page.
+  div
+    p.demo this is the demo page.
+    el-button(type='primary') 按钮
 </template>
 
 <script>
-
 export default {
   name: 'demo',
 }
