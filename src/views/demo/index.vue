@@ -1,5 +1,5 @@
-<template>
-  <p>this is the demo page.</p>
+<template lang='pug'>
+  p.demo this is the demo page.
 </template>
 
 <script>
