@@ -11,6 +11,10 @@ const routes = [
     path:'/',
     redirect:'/home'
   },
+  {
+    name:'management',
+    path:'/management'
+  },
   ...homeRoutes,
   ...demoRoutes,
 ];
