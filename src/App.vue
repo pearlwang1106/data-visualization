@@ -1,10 +1,11 @@
 <template lang='pug'>
 el-container#app.container-box
     el-header.header
-      el-row
+      el-row(style="height: 100%")
         el-col(:span='2')
           img(src='./assets/logo.png' width='40' height='40')
-        el-col(:span='4') 天气
+        el-col(:span='4', class="app-weather")
+          <iframe width="300" scrolling="no" height="24" frameborder="0" allowtransparency="true" src="https://i.tianqi.com?c=code&id=34&color=%23FFFFFF&icon=1&site=14"></iframe>
         el-col(:span='18')
           el-menu(mode='horizontal' background-color='#203450' text-color='#FFF')
             el-menu-item(
@@ -104,6 +105,7 @@ p {
 }
 .el-menu.el-menu--horizontal {
   border-bottom: 0px !important;
+}
 .el-main {
   padding: 0!important;
 }
@@ -124,5 +126,11 @@ p {
 }
 .d-ml {
   margin-left: 8px;
+}
+.app-weather {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 </style>

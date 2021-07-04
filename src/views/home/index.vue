@@ -101,6 +101,7 @@ export default {
   height: 100%;
   // width: 2880px;
   background: #002766;
+  padding: 20px !important;
   .el-card {
     // background-color: rgba(186,231,255, 0.6); 135 232 222
     // background-color: transparent;
