@@ -12,7 +12,7 @@
       el-main
         router-view(v-if='$route.name === "home"')
         template(v-else)
-          el-aside(width='120px')
+          el-aside(width='140px')
             Menus(:list='menuList[$route.name]')
             el-main
               router-view
@@ -80,5 +80,8 @@ body {
 .el-menu--horizontal>.el-menu-item.is-active {
   font-weight: 600;
   color: #FFF!important;
+}
+.el-main {
+  padding: 0!important;
 }
 </style>
