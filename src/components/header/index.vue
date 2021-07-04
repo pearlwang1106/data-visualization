@@ -1,15 +1,15 @@
 <template lang="pug">
-    div.headerBox header
+    div.header-box header
 </template>
 
 <script>
 export default {
-    name: 'header'
+    name: 'headerCom'
 }
 </script>
 
 <style lang="less">
-.headerBox {
+.header-box {
     width: 100%;
     height: 100%;
 }
