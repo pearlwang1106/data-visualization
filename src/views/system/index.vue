@@ -3,7 +3,7 @@
         el-row(:gutter="20")
             el-col(:span="6", class="col-item", v-for="(item, index) in dataSource", :key="index")
                 el-card(shadow="hover", :body-style="{ padding: '0px' }")
-                    a(href="https://www.baidu.com" target="_blank")
+                    a(:href="item.url" target="_blank")
                         img(:src="item.img", class="image")
                         div(style="padding: 14px;")
                             span.title {{item.title}}
@@ -22,31 +22,38 @@ export default {
             dataSource: [{
                 title: 'AntV',
                 mark: '全新一代数据可视化解决方案',
-                img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*ZhzDQLMyYlYAAAAAAAAAAABkARQnAQ'
+                img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*ZhzDQLMyYlYAAAAAAAAAAABkARQnAQ',
+                url: 'https://www.baidu.com'
             }, {
                 title: '海兔',
                 mark: '全新一代图形化解决方案',
-                img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*PrLWSpmWZmIAAAAAAAAAAABkARQnAQ'
+                img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*PrLWSpmWZmIAAAAAAAAAAABkARQnAQ',
+                url: 'https://www.baidu.com'
             }, {
                 title: '网站名称',
                 mark: '描述信息',
-                img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*T_HeSIJ30IIAAAAAAAAAAABkARQnAQ'
+                img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*T_HeSIJ30IIAAAAAAAAAAABkARQnAQ',
+                url: 'https://www.baidu.com'
             }, {
                 title: '网站名称',
                 mark: '描述信息',
-                img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*T_HeSIJ30IIAAAAAAAAAAABkARQnAQ'
+                img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*T_HeSIJ30IIAAAAAAAAAAABkARQnAQ',
+                url: 'https://www.baidu.com'
             }, {
                 title: '网站名称',
                 mark: '描述信息',
-                img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*T_HeSIJ30IIAAAAAAAAAAABkARQnAQ'
+                img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*T_HeSIJ30IIAAAAAAAAAAABkARQnAQ',
+                url: 'https://www.baidu.com'
             }, {
                 title: '网站名称',
                 mark: '描述信息',
-                img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*T_HeSIJ30IIAAAAAAAAAAABkARQnAQ'
+                img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*T_HeSIJ30IIAAAAAAAAAAABkARQnAQ',
+                url: 'https://www.baidu.com'
             }, {
                 title: '网站名称',
                 mark: '描述信息',
-                img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*T_HeSIJ30IIAAAAAAAAAAABkARQnAQ'
+                img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*T_HeSIJ30IIAAAAAAAAAAABkARQnAQ',
+                url: 'https://www.baidu.com'
             }]
         }
     }
