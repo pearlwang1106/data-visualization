@@ -2,11 +2,12 @@
   #app
     el-container.container-box
       el-header.header
-        el-row
+        el-row(style="height: 100%")
           el-col(:span='2')
             img(src='./assets/logo.png' width='40' height='40')
-          el-col(:span='4') 天气
-          el-col(:span='18')
+          el-col(:span='5', class="app-weather") 
+            <iframe width="260" height="25" frameborder="0" scrolling="no" hspace="0" src="https://i.tianqi.com/?c=code&id=34&color=%23FFFFFF&site=14"></iframe>
+          el-col(:span='17')
             el-menu(mode='horizontal' background-color='#203450' text-color='#FFF' :router='true')
               el-menu-item(v-for='(item, key) in menuList' :index='key' :key="key") {{ item.label }}
       div.content-box
@@ -83,6 +84,15 @@ body {
   line-height: 52px;
   background-color: #203450;
   color: #fff;
+}
+.app-weather {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+    iframe.a {
+      color: #fff;
+    }
 }
 .el-menu--horizontal>.el-menu-item {
   height: 52px!important;
