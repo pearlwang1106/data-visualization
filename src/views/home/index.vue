@@ -1,6 +1,7 @@
 <template lang='pug'>
   el-container
-    el-header header
+    el-header 
+      HeaderCom
     el-main
       el-row
         el-col(:span='6') 左
@@ -9,11 +10,16 @@
 </template>
 
 <script>
+import HeaderCom from '../../components/header';
+
 export default {
   name: 'home',
+  components: {
+    HeaderCom
+  }
 }
 </script>
 
-<style>
+<style lang="less">
 
 </style>
