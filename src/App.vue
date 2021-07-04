@@ -1,5 +1,5 @@
 <template lang='pug'>
-  el-container#app
+el-container#app.container-box
     el-header.header
       el-row
         el-col(:span='2')
@@ -63,6 +63,17 @@ p {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #333;
+  width: 100%;
+  height: 100vh;
+}
+.container-box {
+  width: 100%;
+  height: 100%;
+}
+.content-box {
+  width: 100%;
+  height: calc(100% - 52px);
+  box-sizing: border-box;
 }
 .header,
 .footer {
@@ -91,6 +102,8 @@ p {
   font-weight: 600;
   color: #FFF!important;
 }
+.el-menu.el-menu--horizontal {
+  border-bottom: 0px !important;
 .el-main {
   padding: 0!important;
 }
