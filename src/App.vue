@@ -6,16 +6,14 @@
           img(src='./assets/logo.png' width='40' height='40')
         el-col(:span='4') 天气
         el-col(:span='18')
-          el-menu(mode='horizontal' background-color='#203450' text-color='#FFF' :router='true')
-            el-menu-item(v-for='(item, key) in menuList' :index='key') {{ item.label }}
+          el-menu(mode='horizontal' background-color='#203450' text-color='#FFF')
+            el-menu-item(
+              v-for='(item, key) in menuList'
+              :index='key'
+              @click='$router.push({name: key})') {{ item.label }}
 
     el-main.main
-      router-view(v-if='$route.name === "home"')
-      template(v-else)
-        el-aside(width='140px')
-          Menus(:list='menuList[$route.name]')
-          el-main
-            router-view
+      router-view
 
     el-footer.footer(v-if='$route.name !== "home"')
       p footer 信息
@@ -95,5 +93,10 @@ p {
 }
 .el-main {
   padding: 0!important;
+}
+.el-aside,
+.el-menu,
+.content {
+  height: 100%;
 }
 </style>

@@ -2,14 +2,15 @@
   el-menu
     el-menu-item-group
       el-menu-item(
-        v-for='item in list.children'
-        :index='`${item.value}-${item.value}`') {{ item.label }}
+        v-for='item in list'
+        @click='handleMenuClick(item.value)'
+        ) {{ item.label }}
 </template>
 
 <script>
 
 export default {
-  props: ['list'],
+  props: ['prePath', 'list'],
   data () {
     return {
     };
@@ -17,6 +18,13 @@ export default {
 
   mounted () {
     console.error(this.list)
+  },
+
+  methods: {
+    handleMenuClick (key) {
+      this.$router.push({name: key});
+      console.error('menu: ', key);
+    },
   }
 
 }
