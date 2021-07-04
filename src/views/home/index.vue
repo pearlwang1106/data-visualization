@@ -5,7 +5,7 @@
       el-row
         el-col(:span='6') 左
         el-col(:span='12') 中
-        el-col(:span='6') 右
+        el-col(:span='6') 右1
 </template>
 
 <script>
