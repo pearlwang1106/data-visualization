@@ -2,7 +2,7 @@
   el-container.content
     el-aside(width='140px')
       Menus(:list='list')
-    el-main
+    el-main.management-content
       router-view
 </template>
 
@@ -47,5 +47,8 @@ export default {
 }
 </script>
 
-<style>
+<style lang='less'>
+.management-content {
+  padding: 16px!important;
+}
 </style>

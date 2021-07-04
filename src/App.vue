@@ -99,4 +99,17 @@ p {
 .content {
   height: 100%;
 }
+
+.d-mt {
+  margin-top: 8px;
+}
+.d-mr {
+  margin-right: 8px;
+}
+.d-mb {
+  margin-bottom: 8px;
+}
+.d-ml {
+  margin-left: 8px;
+}
 </style>

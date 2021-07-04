@@ -22,6 +22,10 @@ export default {
 
   methods: {
     handleMenuClick (key) {
+      if (this.$route.name === key) {
+        return;
+      }
+
       this.$router.push({name: key});
       console.error('menu: ', key);
     },
