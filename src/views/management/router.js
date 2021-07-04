@@ -4,20 +4,6 @@ import Visitors from './visitors';
 import Elevators from './elevators';
 import Vehicles from './vehicles';
 
-// children: [{
-//   value: 'guards',
-//   label: '门禁监控',
-// }, {
-//   value: 'visitors',
-//   label: '访客管理',
-// }, {
-//   value: 'elevators',
-//   label: '电梯监控',
-// }, {
-//   value: 'vehicles',
-//   label: '车辆管理',
-// }],
-
 export default [{
 	name:'management',
 	path:'/management',
