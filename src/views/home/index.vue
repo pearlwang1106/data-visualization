@@ -1,52 +1,184 @@
 <template lang='pug'>
-  el-container
-    el-header 
-      HeaderCom
+  el-container.homeIndex
     el-main.home-box
-      el-row
+      el-row.home-box-row
         el-col(
           :span='6',
           class='home-box-left'
         )
-          demo
+          el-row
+            el-col(:span="24")
+              el-card(shadow="always")
+                CategoryCenterTop
+          el-row.home-box-left-btm
+            el-col(:span="24", class="left-btm-height")
+              el-card(shadow="always", class="echarts-left-btm")
+                categoryLeftBtm
         el-col(
           :span='12',
           class='home-box-center'
-        ) 中
+        ) 
+          el-row(
+            class="home-center-top"
+          )
+            el-col(
+              :span="8"
+            )
+              el-card(
+                shadow="always"
+                class="home-card"
+              )
+                span.title 浏览量
+                span.number 23,917
+            el-col(
+              :span="8"
+            )
+              el-card(
+                shadow="always"
+                class="home-card"
+              )
+                span.title 访问次数
+                span(class='number yellow') 9,175
+            el-col(
+              :span="8"
+            )
+              el-card(
+                shadow="always"
+              )
+                span.title 跳出次数
+                span(class='number green') 8,267
+          el-row(
+            class="home-center-btm"
+          )
+            el-col(:span='24', class='echart-one')
+              el-card(shadow="always", class="home-center-card")
+                BarLeftTop
+            el-col(:span="24", class='echart-one')
+              el-card(shadow="always", class="home-center-card")
+                CategoryCenterBtm
         el-col(
           :span='6',
           class='home-box-right'
-        ) 右1
+        )
+          el-row
+            el-col(:span='24')
+              el-card(shadow="always")
+                PieRightTop
+          el-row.home-box-left-btm
+            el-col(:span='24', class="left-btm-height")
+              el-card(shadow="always", class="echarts-left-btm")
+                barRightBtm
 </template>
 
 <script>
-import HeaderCom from '../../components/header';
-import demo from '../../components/charts/demo';
+import CategoryCenterTop from './charts/category-center-top';
+import CategoryCenterBtm from './charts/category-center-btm';
+import categoryLeftBtm from './charts/category-left-btm.vue';
+import BarLeftTop from './charts/bar-left-top';
+import barRightBtm from './charts/bar-right-btm';
+import PieRightTop from './charts/pie-right-top';
 
 export default {
   name: 'home',
   components: {
-    HeaderCom,
-    demo
+    CategoryCenterTop,
+    CategoryCenterBtm,
+    categoryLeftBtm,
+    BarLeftTop,
+    barRightBtm,
+    PieRightTop
   }
 }
 </script>
 
 <style lang="less">
+.homeIndex{
+    width: 100%;
+    height: 100%;
+}
 .home-box {
-  // width: 100%;
-  width: 2880px;
-  height: auto;
+  width: 100%;
+  height: 100%;
+  // width: 2880px;
+  // height: calc(100% - 60px);
+  background: #002766;
+  .home-box-row {
+    height: 100%;
+  }
   .home-box-left {
-    height: auto;
-    background-color:#ccc;
+    height: 100%;
+  }
+  .home-box-left-btm {
+    height: calc(100% - 240px - 20px);
+  }
+  .left-btm-height {
+    height: 100%;
   }
   .home-box-center {
-    height: auto;
+    height: 100%;
+    box-sizing: border-box;
+    .echart-one {
+      margin-top: 20px;
+      padding-left: 20px;
+      padding-right: 20px;
+      height: calc(50% - 20px);
+      box-sizing: border-box;
+    }
   }
   .home-box-right {
-    height: auto;
-    background-color:#000;
+    height: 100%;
+    box-sizing: border-box;
+  }
+  .home-center-top {
+    padding-left: 20px;
+    padding-right: 20px;
+    .el-card__body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    span.title {
+      font-size: 20px;
+      color: #1890ff;
+    }
+    span.number {
+      font-size: 28px;
+      color: #36cfc9;
+      font-weight: bold;
+    }
+    span.yellow {
+      color: #ffc53d;
+    }
+    span.green {
+      color: #73d13d;
+    }
+  }
+  .home-center-btm{
+    height: calc(100% - 106px);
+    box-sizing: border-box;
+  }
+  .home-card {
+    margin-right: 20px;
+    height: 106px;
+    box-sizing: border-box;
+  }
+  .echarts-left-btm {
+    margin-top: 20px;
+    height: calc(100% - 22px);
+    .el-card__body{
+      height: 100%;
+      box-sizing: border-box;
+    }
+  }
+  .home-center-card {
+    height: 100%;
+    box-sizing: border-box;
+    .el-card__body{
+      height: 100%;
+      box-sizing: border-box;
+    }
   }
 }
 </style>

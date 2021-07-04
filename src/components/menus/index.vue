@@ -3,6 +3,7 @@
     el-menu-item-group
       el-menu-item(
         v-for='item in list.children'
+        :key="item.value"
         :index='`${item.value}-${item.value}`') {{ item.label }}
 </template>
 
