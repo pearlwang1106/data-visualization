@@ -1,21 +1,25 @@
 <template lang='pug'>
-  #app
-    el-container
-      el-header.header
-        el-row
-          el-col(:span='2')
-            img(src='./assets/logo.png' width='40' height='40')
-          el-col(:span='4') 天气
-          el-col(:span='18')
-            el-menu(mode='horizontal' background-color='#203450' text-color='#FFF' :router='true')
-              el-menu-item(v-for='(item, key) in menuList' :index='key') {{ item.label }}
-      el-main
-        router-view(v-if='$route.name === "home"')
-        template(v-else)
-          el-aside(width='140px')
-            Menus(:list='menuList[$route.name]')
-            el-main
-              router-view
+  el-container#app
+    el-header.header
+      el-row
+        el-col(:span='2')
+          img(src='./assets/logo.png' width='40' height='40')
+        el-col(:span='4') 天气
+        el-col(:span='18')
+          el-menu(mode='horizontal' background-color='#203450' text-color='#FFF' :router='true')
+            el-menu-item(v-for='(item, key) in menuList' :index='key') {{ item.label }}
+
+    el-main.main
+      router-view(v-if='$route.name === "home"')
+      template(v-else)
+        el-aside(width='140px')
+          Menus(:list='menuList[$route.name]')
+          el-main
+            router-view
+
+    el-footer.footer(v-if='$route.name !== "home"')
+      p footer 信息
+      p 2021 @Copyright
 </template>
 
 <script>
@@ -38,9 +42,6 @@ export default {
   },
 
   watch: {
-    '$route' () {
-      console.error(this.$route)
-    }
   },
 
   mounted () {
@@ -48,16 +49,14 @@ export default {
   },
 
   methods: {
-    handleMenuItemClick (item) {
-      console.error(item)
-    }
   },
 }
 </script>
 
 <style>
 html,
-body {
+body,
+p {
   margin: 0;
   padding: 0;
 }
@@ -67,11 +66,24 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: #333;
 }
-.header {
+.header,
+.footer {
   height: 52px!important;
   line-height: 52px;
+}
+.header {
   background-color: #203450;
   color: #fff;
+}
+.main {
+  height: calc(100vh - 104px);
+}
+.footer {
+  text-align: center;
+  line-height: 24px;
+  font-size: 13px;
+  color: #666;
+  background-color: #f1f1f1;
 }
 .el-menu--horizontal>.el-menu-item {
   height: 52px!important;
