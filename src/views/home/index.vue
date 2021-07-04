@@ -100,8 +100,15 @@ export default {
   width: 100%;
   height: 100%;
   // width: 2880px;
-  // height: calc(100% - 60px);
   background: #002766;
+  .el-card {
+    // background-color: rgba(186,231,255, 0.6); 135 232 222
+    // background-color: transparent;
+    // background-color: rgba(135,232,222,0.2);
+    // border-color: rgba(135,232,222,0.2);
+    // box-shadow: 0 2px 12px 0 rgb(54 207 201  / 10%) !important;
+    // box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
+  }
   .home-box-row {
     height: 100%;
   }
@@ -140,8 +147,8 @@ export default {
       text-align: center;
     }
     span.title {
-      font-size: 20px;
-      color: #1890ff;
+      font-size: 16px;
+      // color: #f0f0f0;
     }
     span.number {
       font-size: 28px;
