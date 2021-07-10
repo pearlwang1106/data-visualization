@@ -20,62 +20,38 @@ el-container#app.container-box
               :index='key'
               @click='$router.push({name: key})') {{ item.label }}
 
-  el-container#app.container-box
-      el-header.header
-        el-row(style="height: 100%")
-          el-col(:span='2' class="head-logo")
-            img(src='./assets/logo.png' width='40' height='40')
-          el-col(:span='4', class="app-weather")
-            <iframe width="300" scrolling="no" height="24" frameborder="0" allowtransparency="true" src="https://i.tianqi.com?c=code&id=34&color=%23FFFFFF&icon=1&site=14"></iframe>
-          el-col(:span='18')
-            el-menu(mode='horizontal' background-color='#203450' text-color='#FFF')
-              el-menu-item(
-                v-for='(item, key) in menuList'
-                :index='key'
-                @click='$router.push({name: key})') {{ item.label }}
+    el-main.main
+      router-view
 
-      el-main.main
-        router-view
-
-      el-footer.footer(v-if='$route.name !== "home"')
-        p footer 信息
-        p 2021 @Copyright
+    el-footer.footer(v-if='$route.name !== "home"')
+      p footer 信息
+      p 2021 @Copyright
 </template>
 
 <script>
 // components
 import Menus from './components/menus';
-import ScreenAdapter from './components/screen-adapter';
-
 // data
 import { MENUS } from './utils/data';
-
 // utils
 import { get } from 'lodash';
-
 export default {
   name: 'App',
   data () {
     return {
       activeKey: '',
       menuList: MENUS,
-      screenwidth: 0,
-      screenheight: 0
     };
   },
   components: {
     Menus,
-    ScreenAdapter
   },
-
   watch: {
     
   },
-
   mounted () {
     this.activeKey = get(this.$route,'matched[0].name', '');
   },
-
   methods: {
   },
 }
@@ -152,7 +128,6 @@ p {
 .content {
   height: 100%;
 }
-
 .el-pagination {
   padding: 0;
   text-align: right;
@@ -160,7 +135,6 @@ p {
     margin-right: 0!important;
   }
 }
-
 .d-mt {
   margin-top: 8px;
 }
