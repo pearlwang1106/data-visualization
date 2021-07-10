@@ -7,7 +7,8 @@ import Environmental from './environmental-monitoring';
 
 export default [{
 	name:'monitor',
-	path:'/monitor',
+  path:'/monitor',
+  redirect: '/monitor/fire-monitoring',
   component: Index,
   children: [
     {

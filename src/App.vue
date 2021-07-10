@@ -5,9 +5,15 @@ el-container#app.container-box
         el-col(:span='3' class="head-logo")
           img(src='./assets/logo.png' width='40' height='40')
         el-col(:span='4', class="app-weather")
-          <iframe width="300" scrolling="no" height="24" frameborder="0" allowtransparency="true" src="https://i.tianqi.com?c=code&id=34&color=%23FFFFFF&icon=1&site=14"></iframe>
+          iframe(
+            width="300"
+            scrolling="no"
+            height="24"
+            frameborder="0"
+            allowtransparency="true"
+            src="https://i.tianqi.com?c=code&id=34&color=%23FFFFFF&icon=1&site=14")
         el-col(:span='17')
-          el-menu(mode='horizontal' background-color='#203450' text-color='#FFF')
+          el-menu(mode='horizontal' background-color='#203450' text-color='#FFF' :default-active='activeKey')
             el-menu-item(
               v-for='(item, key) in menuList'
               :index='key'
@@ -29,10 +35,14 @@ import Menus from './components/menus';
 // data
 import { MENUS } from './utils/data';
 
+// utils
+import { get } from 'lodash';
+
 export default {
   name: 'App',
   data () {
     return {
+      activeKey: '',
       menuList: MENUS,
     };
   },
@@ -41,9 +51,11 @@ export default {
   },
 
   watch: {
+    
   },
 
   mounted () {
+    this.activeKey = get(this.$route,'matched[0].name', '');
   },
 
   methods: {
