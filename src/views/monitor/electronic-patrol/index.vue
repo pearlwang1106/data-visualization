@@ -1,18 +1,60 @@
 <template lang='pug'>
   section
-    video.video-wrapper(height='300' width='100%')
+    section.chart-wrapper
+      chart(:options='options')
     el-table.d-mt(:data='tableData' border)
-      template(v-for='col in columns')
-        el-table-column(v-if='col.name === "operation"' fixed='right')
-          template(slot-scope="scope" label='操作')
-            el-button(size="mini" type='text') 开启/取消监控
-        el-table-column(v-else :prop='col.name' :label='col.label')
+      el-table-column(v-for='col in columns' :key='col.name' :prop='col.name' :label='col.label')
 </template>
 
 <script>
+import Chart from '../../../components/charts';
+
 export default {
   data () {
     return {
+      options: {
+        tooltip: {
+          trigger: 'item'
+        },
+        legend: {
+            top: '5%',
+            left: 'center'
+        },
+        series: [
+            {
+                name: '访问来源',
+                type: 'pie',
+                radius: ['40%', '70%'],
+                avoidLabelOverlap: false,
+                itemStyle: {
+                    borderRadius: 10,
+                    borderColor: '#fff',
+                    borderWidth: 2
+                },
+                label: {
+                    show: false,
+                    position: 'center'
+                },
+                emphasis: {
+                    label: {
+                        show: true,
+                        fontSize: '40',
+                        fontWeight: 'bold'
+                    }
+                },
+                labelLine: {
+                    show: false
+                },
+                data: [
+                    {value: 1048, name: '搜索引擎'},
+                    {value: 735, name: '直接访问'},
+                    {value: 580, name: '邮件营销'},
+                    {value: 484, name: '联盟广告'},
+                    {value: 300, name: '视频广告'}
+                ]
+            }
+        ]
+      },
       columns: [{
         name: 'number',
         label: '序号',
@@ -31,9 +73,6 @@ export default {
       }, {
         name: 'arrears',
         label: '欠费用户数',
-      }, {
-        name: 'operation',
-        label: '操作',
       }],
       tableData: [{
         number: 1,
@@ -107,12 +146,18 @@ export default {
         arrears: 35
       }]
     }
+  },
+
+  components: {
+    Chart,
   }
 }
 </script>
 
 <style lang='less'>
-  .video-wrapper {
-    background-color: #DDD;
+  .chart-wrapper {
+    border: 1px solid #f1f1f1;
+    width: 100%;
+    height: 400px;
   }
 </style>

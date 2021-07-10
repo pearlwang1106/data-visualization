@@ -9,6 +9,7 @@ Vue.use(VueRouter)
 import demoRoutes from './views/demo/router';
 import homeRoutes from './views/home/router';
 import managementRoutes from './views/management/router';
+import MonitorRoutes from './views/monitor/router';
 import systemRoutes from './views/system/router';
 
 // const menuList = map(MENUS, (item, key) => {
@@ -27,6 +28,7 @@ const routes = [
   ...homeRoutes,
   ...demoRoutes,
   ...managementRoutes,
+  ...MonitorRoutes,
   ...systemRoutes
 ];
 

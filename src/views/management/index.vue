@@ -39,7 +39,6 @@ export default {
   },
 
   mounted () {
-    console.error(111, this.menuList)
   },
 
   methods: {

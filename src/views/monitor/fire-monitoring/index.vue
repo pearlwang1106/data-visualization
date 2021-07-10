@@ -2,11 +2,7 @@
   section
     video.video-wrapper(height='300' width='100%')
     el-table.d-mt(:data='tableData' border)
-      template(v-for='col in columns')
-        el-table-column(v-if='col.name === "operation"' fixed='right')
-          template(slot-scope="scope" label='操作')
-            el-button(size="mini" type='text') 开启/取消监控
-        el-table-column(v-else :prop='col.name' :label='col.label')
+      el-table-column(v-for='col in columns' :key='col.name' :prop='col.name' :label='col.label')
 </template>
 
 <script>
@@ -31,9 +27,6 @@ export default {
       }, {
         name: 'arrears',
         label: '欠费用户数',
-      }, {
-        name: 'operation',
-        label: '操作',
       }],
       tableData: [{
         number: 1,

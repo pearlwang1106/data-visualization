@@ -17,7 +17,6 @@ export default {
   },
 
   mounted () {
-    console.error(this.list)
   },
 
   methods: {
@@ -27,7 +26,6 @@ export default {
       }
 
       this.$router.push({name: key});
-      console.error('menu: ', key);
     },
   }
 
