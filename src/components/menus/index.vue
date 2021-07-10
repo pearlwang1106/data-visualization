@@ -3,6 +3,7 @@
     el-menu-item-group
       el-menu-item(
         v-for='item in list'
+        :key='item.value'
         :index='item.value'
         @click='handleMenuClick(item.value)'
         ) {{ item.label }}

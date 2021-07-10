@@ -16,6 +16,7 @@ el-container#app.container-box
           el-menu(mode='horizontal' background-color='#203450' text-color='#FFF' :default-active='activeKey')
             el-menu-item(
               v-for='(item, key) in menuList'
+              :key='key'
               :index='key'
               @click='$router.push({name: key})') {{ item.label }}
 
@@ -133,6 +134,14 @@ p {
 .el-menu,
 .content {
   height: 100%;
+}
+
+.el-pagination {
+  padding: 0;
+  text-align: right;
+  .btn-next {
+    margin-right: 0!important;
+  }
 }
 
 .d-mt {
