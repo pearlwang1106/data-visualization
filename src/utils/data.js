@@ -22,19 +22,19 @@ export const MENUS = {
   monitor: {
     label: '监控预警',
     children: [{
-      value: 'fire-monitoring',
+      value: 'fire',
       label: '消防监控',
     }, {
-      value: 'security-monitoring',
+      value: 'security',
       label: '防盗监控',
     }, {
       value: 'help',
       label: '求助报警',
     }, {
-      value: 'electronic-patrol',
+      value: 'electronic',
       label: '电子巡更',
     }, {
-      value: 'environmental-monitoring',
+      value: 'environmental',
       label: '环境监控',
     }],
   },

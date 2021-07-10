@@ -12,23 +12,13 @@
 import Menus from '../../components/menus';
 
 // data
+import { MENUS } from '../../utils/data';
+
 export default {
   // name: 'App',
   data () {
     return {
-      list: [{
-      value: 'guards',
-      label: '门禁监控',
-    }, {
-      value: 'visitors',
-      label: '访客管理',
-    }, {
-      value: 'elevators',
-      label: '电梯监控',
-    }, {
-      value: 'vehicles',
-      label: '车辆管理',
-    }]
+      list: MENUS.management.children,
     };
   },
   components: {

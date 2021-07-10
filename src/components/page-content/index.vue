@@ -11,9 +11,6 @@
 // components
 import Menus from '../menus';
 
-// data
-// import { MENUS } from '../../utils/data';
-
 export default {
   props: ['list'],
   data () {
