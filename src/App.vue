@@ -29,16 +29,12 @@ el-container#app.container-box
 </template>
 
 <script>
-
 // components
 import Menus from './components/menus';
-
 // data
 import { MENUS } from './utils/data';
-
 // utils
 import { get } from 'lodash';
-
 export default {
   name: 'App',
   data () {
@@ -50,15 +46,12 @@ export default {
   components: {
     Menus,
   },
-
   watch: {
     
   },
-
   mounted () {
     this.activeKey = get(this.$route,'matched[0].name', '');
   },
-
   methods: {
   },
 }
@@ -135,7 +128,6 @@ p {
 .content {
   height: 100%;
 }
-
 .el-pagination {
   padding: 0;
   text-align: right;
@@ -143,7 +135,6 @@ p {
     margin-right: 0!important;
   }
 }
-
 .d-mt {
   margin-top: 8px;
 }
