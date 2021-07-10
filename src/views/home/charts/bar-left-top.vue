@@ -20,7 +20,7 @@ export default {
             timer: null,
             chartOptions: {
                 title: {
-                    text: '动态数据',
+                    text: '客流统计-车辆统计',
                     subtext: '纯属虚构'
                 },
                 tooltip: {

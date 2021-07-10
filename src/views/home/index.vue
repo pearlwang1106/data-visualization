@@ -156,7 +156,7 @@ export default {
     }
     span.number {
       font-size: 28px;
-      color: #36cfc9;
+      color: #1890ff;
       font-weight: bold;
     }
     span.yellow {
