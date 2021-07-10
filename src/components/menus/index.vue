@@ -28,6 +28,7 @@ export default {
 
   methods: {
     handleMenuClick (key) {
+      console.error('key', key);
       if (this.$route.name === key) {
         return;
       }
