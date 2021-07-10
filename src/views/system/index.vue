@@ -30,27 +30,27 @@ export default {
                 img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*PrLWSpmWZmIAAAAAAAAAAABkARQnAQ',
                 url: 'https://www.baidu.com'
             }, {
-                title: '网站名称',
+                title: '系统名称',
                 mark: '描述信息',
                 img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*T_HeSIJ30IIAAAAAAAAAAABkARQnAQ',
                 url: 'https://www.baidu.com'
             }, {
-                title: '网站名称',
+                title: '系统名称',
                 mark: '描述信息',
                 img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*T_HeSIJ30IIAAAAAAAAAAABkARQnAQ',
                 url: 'https://www.baidu.com'
             }, {
-                title: '网站名称',
+                title: '系统名称',
                 mark: '描述信息',
                 img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*T_HeSIJ30IIAAAAAAAAAAABkARQnAQ',
                 url: 'https://www.baidu.com'
             }, {
-                title: '网站名称',
+                title: '系统名称',
                 mark: '描述信息',
                 img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*T_HeSIJ30IIAAAAAAAAAAABkARQnAQ',
                 url: 'https://www.baidu.com'
             }, {
-                title: '网站名称',
+                title: '系统名称',
                 mark: '描述信息',
                 img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*T_HeSIJ30IIAAAAAAAAAAABkARQnAQ',
                 url: 'https://www.baidu.com'

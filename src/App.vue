@@ -2,11 +2,11 @@
 el-container#app.container-box
     el-header.header
       el-row(style="height: 100%")
-        el-col(:span='2')
+        el-col(:span='3' class="head-logo")
           img(src='./assets/logo.png' width='40' height='40')
         el-col(:span='4', class="app-weather")
           <iframe width="300" scrolling="no" height="24" frameborder="0" allowtransparency="true" src="https://i.tianqi.com?c=code&id=34&color=%23FFFFFF&icon=1&site=14"></iframe>
-        el-col(:span='18')
+        el-col(:span='17')
           el-menu(mode='horizontal' background-color='#203450' text-color='#FFF')
             el-menu-item(
               v-for='(item, key) in menuList'
@@ -51,7 +51,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less">
 html,
 body,
 p {
@@ -83,6 +83,15 @@ p {
 .header {
   background-color: #203450;
   color: #fff;
+}
+.head-logo {
+  width: auto;
+  height: 60px;
+  img {
+    width: auto;
+    height: 100%;
+    object-fit: cover;
+  }
 }
 .main {
   height: calc(100vh - 104px);
