@@ -6,7 +6,8 @@ import Vehicles from './vehicles';
 
 export default [{
 	name:'management',
-	path:'/management',
+  path:'/management',
+  redirect: '/management/guards',
   component: Index,
   children: [
     {
