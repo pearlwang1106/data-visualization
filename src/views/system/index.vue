@@ -15,46 +15,12 @@
 </template>
 
 <script>
+import { mockSystemData } from '../../utils/mockData.js';
 export default {
     name: 'system',
     data() {
         return {
-            dataSource: [{
-                title: 'AntV',
-                mark: '全新一代数据可视化解决方案',
-                img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*ZhzDQLMyYlYAAAAAAAAAAABkARQnAQ',
-                url: 'https://www.baidu.com'
-            }, {
-                title: '海兔',
-                mark: '全新一代图形化解决方案',
-                img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*PrLWSpmWZmIAAAAAAAAAAABkARQnAQ',
-                url: 'https://www.baidu.com'
-            }, {
-                title: '系统名称',
-                mark: '描述信息',
-                img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*T_HeSIJ30IIAAAAAAAAAAABkARQnAQ',
-                url: 'https://www.baidu.com'
-            }, {
-                title: '系统名称',
-                mark: '描述信息',
-                img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*T_HeSIJ30IIAAAAAAAAAAABkARQnAQ',
-                url: 'https://www.baidu.com'
-            }, {
-                title: '系统名称',
-                mark: '描述信息',
-                img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*T_HeSIJ30IIAAAAAAAAAAABkARQnAQ',
-                url: 'https://www.baidu.com'
-            }, {
-                title: '系统名称',
-                mark: '描述信息',
-                img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*T_HeSIJ30IIAAAAAAAAAAABkARQnAQ',
-                url: 'https://www.baidu.com'
-            }, {
-                title: '系统名称',
-                mark: '描述信息',
-                img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*T_HeSIJ30IIAAAAAAAAAAABkARQnAQ',
-                url: 'https://www.baidu.com'
-            }]
+            dataSource: [...mockSystemData]
         }
     }
 }

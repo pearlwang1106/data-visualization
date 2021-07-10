@@ -13,7 +13,7 @@
           el-row.home-box-left-btm
             el-col(:span="24", class="left-btm-height")
               el-card(shadow="always", class="echarts-left-btm")
-                categoryLeftBtm
+                MonitorVideo
         el-col(
           :span='12',
           class='home-box-center'
@@ -67,7 +67,7 @@
           el-row.home-box-left-btm
             el-col(:span='24', class="left-btm-height")
               el-card(shadow="always", class="echarts-left-btm")
-                barRightBtm
+                MonitorFacilities
 </template>
 
 <script>
@@ -79,8 +79,10 @@ import CarPie from './charts/car-pie';
 import StatisticsVisitor from './charts/statistics-visitor';
 // 客流统计-车辆统计
 import StatisticsCar from './charts/statistics-car';
-import categoryLeftBtm from './charts/category-left-btm.vue';
-import barRightBtm from './charts/bar-right-btm';
+// 视频监控
+import MonitorVideo from './charts/monitor-video.vue';
+// 设施监控
+import MonitorFacilities from './charts/monitor-facilities';
 
 
 export default {
@@ -88,9 +90,9 @@ export default {
   components: {
     InformationCircular,
     StatisticsVisitor,
-    categoryLeftBtm,
+    MonitorVideo,
     StatisticsCar,
-    barRightBtm,
+    MonitorFacilities,
     CarPie
   }
 }

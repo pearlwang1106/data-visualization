@@ -142,7 +142,7 @@ export default {
         height: 36px;
         line-height: 36px;
         &:nth-child(2n) {
-            background-color: #e6f7ff;
+            background-color: #d9d9d9;
         }
     }
     .el-col {
