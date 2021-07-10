@@ -1,5 +1,7 @@
 <template lang='pug'>
   section
+    div(class='tool-bar')
+      el-button(type='primary' size='mini' @click='exportList') 导出数据
     el-table.d-mt(:data='tableData' border)
       template(v-for='col in columns')
         el-table-column(v-if='col.name === "operation"' fixed='right' label='操作')
@@ -20,6 +22,8 @@
 </template>
 
 <script>
+// util
+import ExportJsonExcel from 'js-export-excel';
 import { mockColumns, mockTableData } from '../../utils/mockData';
 import { getDemoData } from '../../api';
 
@@ -77,10 +81,28 @@ export default {
     onSizeChange (size) {
       this.pagination.pageSize = size;
       this.getTableData();
+    },
+
+    // 数据导出
+    exportList () {
+      const toExcel = new ExportJsonExcel({
+        fileName: '导出数据',
+        columns: this.columns,
+        datas: [{
+          sheetData: this.tableData,
+          sheetName: 'sheet',
+          sheetHeader: this.columns?.map(col => col.label),
+          // sheetFilter,
+        }]
+      });
+      toExcel.saveExcel();
     }
   },
 }
 </script>
 
 <style lang='less'>
+.tool-bar {
+  text-align: right;
+}
 </style>

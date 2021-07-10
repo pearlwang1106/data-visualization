@@ -2,191 +2,82 @@
   section
     section.chart-wrapper
       chart(:options='options')
-    el-table.d-mt(:data='tableData' border)
-      el-table-column(v-for='col in columns' :key='col.name' :prop='col.name' :label='col.label')
+    list.d-mt(url='' :params='{}' :onOpearClick='handleOperaClick')
 </template>
 
 <script>
+// components
 import Chart from '../../../components/charts';
+import List from '../../../components/list';
+
+// mixins
+import Mixins from '../../../mixins';
+
+// setting data
+import { CHART_OPTIONS } from '../../../utils/chart';
+
+// mock data
+import {  mockChartData } from '../../../utils/mockData';
+
 
 export default {
   data () {
     return {
       options: {
-        title: {
+        ...CHART_OPTIONS,
+        legend: {
+          data: mockChartData.map(item => item.name)
         },
         tooltip: {
-            trigger: 'axis'
-        },
-        legend: {
-            data: ['最高气温', '最低气温']
-        },
-        toolbox: {
-            show: true,
-            feature: {
-                dataZoom: {
-                    yAxisIndex: 'none'
-                },
-                dataView: {readOnly: false},
-                magicType: {type: ['line', 'bar']},
-                restore: {},
-                saveAsImage: {}
-            }
+          trigger: 'item'
         },
         xAxis: {
-            type: 'category',
-            boundaryGap: false,
-            data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+          show: false,
         },
         yAxis: {
-            type: 'value',
-            axisLabel: {
-                formatter: '{value} °C'
-            }
+          show: false,
         },
-        series: [
-            {
-                name: '最高气温',
-                type: 'line',
-                data: [10, 11, 13, 11, 12, 12, 9],
-                markPoint: {
-                    data: [
-                        {type: 'max', name: '最大值'},
-                        {type: 'min', name: '最小值'}
-                    ]
-                },
-                markLine: {
-                    data: [
-                        {type: 'average', name: '平均值'}
-                    ]
+        series: [{
+            name: '访问来源',
+            type: 'pie',
+            radius: ['40%', '70%'],
+            avoidLabelOverlap: false,
+            itemStyle: {
+                borderRadius: 10,
+                borderColor: '#fff',
+                borderWidth: 2
+            },
+            label: {
+                show: false,
+                position: 'center'
+            },
+            emphasis: {
+                label: {
+                    show: true,
+                    fontSize: '40',
+                    fontWeight: 'bold'
                 }
             },
-            {
-                name: '最低气温',
-                type: 'line',
-                data: [1, -2, 2, 5, 3, 2, 0],
-                markPoint: {
-                    data: [
-                        {name: '周最低', value: -2, xAxis: 1, yAxis: -1.5}
-                    ]
-                },
-                markLine: {
-                    data: [
-                        {type: 'average', name: '平均值'},
-                        [{
-                            symbol: 'none',
-                            x: '90%',
-                            yAxis: 'max'
-                        }, {
-                            symbol: 'circle',
-                            label: {
-                                position: 'start',
-                                formatter: '最大值'
-                            },
-                            type: 'max',
-                            name: '最高点'
-                        }]
-                    ]
-                }
-            }
-        ]
+            labelLine: {
+                show: false
+            },
+            data: [
+                {value: 1048, name: '搜索引擎'},
+                {value: 735, name: '直接访问'},
+                {value: 580, name: '邮件营销'},
+                {value: 484, name: '联盟广告'},
+                {value: 300, name: '视频广告'}
+            ]
+          }]
       },
-      columns: [{
-        name: 'number',
-        label: '序号',
-      }, {
-        name: 'code',
-        label: '编码',
-      }, {
-        name: 'name',
-        label: '名称',
-      }, {
-        name: 'total',
-        label: '用户总数',
-      }, {
-        name: 'reguler',
-        label: '正常用户数',
-      }, {
-        name: 'arrears',
-        label: '欠费用户数',
-      }],
-      tableData: [{
-        number: 1,
-        code: 73637653,
-        name: '兴丰农村饮水安全工程',
-        total: 454545,
-        reguler: 34335,
-        arrears: 35
-      }, {
-        number: 2,
-        code: 73637653,
-        name: '兴丰农村饮水安全工程',
-        total: 454545,
-        reguler: 34335,
-        arrears: 35
-      }, {
-        number: 3,
-        code: 73637653,
-        name: '兴丰农村饮水安全工程',
-        total: 454545,
-        reguler: 34335,
-        arrears: 35
-      }, {
-        number: 4,
-        code: 73637653,
-        name: '兴丰农村饮水安全工程',
-        total: 454545,
-        reguler: 34335,
-        arrears: 35
-      }, {
-        number: 5,
-        code: 73637653,
-        name: '兴丰农村饮水安全工程',
-        total: 454545,
-        reguler: 34335,
-        arrears: 35
-      }, {
-        number: 6,
-        code: 73637653,
-        name: '兴丰农村饮水安全工程',
-        total: 454545,
-        reguler: 34335,
-        arrears: 35
-      }, {
-        number: 7,
-        code: 73637653,
-        name: '兴丰农村饮水安全工程',
-        total: 454545,
-        reguler: 34335,
-        arrears: 35
-      }, {
-        number: 8,
-        code: 73637653,
-        name: '兴丰农村饮水安全工程',
-        total: 454545,
-        reguler: 34335,
-        arrears: 35
-      }, {
-        number: 9,
-        code: 73637653,
-        name: '兴丰农村饮水安全工程',
-        total: 454545,
-        reguler: 34335,
-        arrears: 35
-      }, {
-        number: 10,
-        code: 73637653,
-        name: '兴丰农村饮水安全工程',
-        total: 454545,
-        reguler: 34335,
-        arrears: 35
-      }]
     }
   },
 
+  mixins: [Mixins],
   components: {
     Chart,
-  }
+    List,
+  },
 }
 </script>
 
