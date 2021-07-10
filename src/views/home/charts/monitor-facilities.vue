@@ -1,41 +1,52 @@
 <template lang="pug">
-    div(
-        class="bar-two-box"
-    )
-        FEcharts(
-            :options="chartOptions"
-        )
+    div(class="bar-two-box")
+        Charts(:options="chartOptions")
 </template>
 
 <script>
-import FEcharts from '../../../components/charts/index.vue'
+import Charts from '../../../components/charts/index.vue'
 
 export default {
     name: "bar-right-btm",
     components: {
-        FEcharts
+        Charts
     },
     data() {
         return {
             timer: null,
             chartOptions: {
+                title: {
+                    text: '设施监控'
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'cross',
+                        label: {
+                            backgroundColor: '#283b56'
+                        }
+                    }
+                },
                 dataset: {
                     source: [
-                        ['score', 'amount', 'product'],
-                        [89.3, 58212, 'Matcha Latte'],
-                        [57.1, 78254, 'Milk Tea'],
-                        [74.4, 41032, 'Cheese Cocoa'],
-                        [50.1, 12755, 'Cheese Brownie'],
-                        [89.7, 20145, 'Matcha Cocoa'],
-                        [68.1, 79146, 'Tea'],
-                        [19.6, 91852, 'Orange Juice'],
-                        [10.6, 101852, 'Lemon Juice'],
-                        [32.7, 20112, 'Walnut Brownie']
+                        ['score', '数量', 'product'],
+                        [89.3, 58212, '设备A'],
+                        [57.1, 78254, '设备B'],
+                        [74.4, 41032, '设备C'],
+                        [50.1, 12755, '设备D'],
+                        [89.7, 20145, '设备E'],
+                        [68.1, 79146, '设备F'],
+                        [19.6, 91852, '设备G']
                     ]
                 },
-                grid: {containLabel: true},
-                xAxis: {name: 'amount'},
-                yAxis: {type: 'category'},
+                grid: {
+                    left:'3%',
+                    bottom: '3%',
+                    right: '15%',
+                    containLabel: true
+                },
+                xAxis: {name: '数量'},
+                yAxis: {type: 'category', name: '设备名称'},
                 visualMap: {
                     show: false,
                     orient: 'horizontal',
@@ -46,7 +57,7 @@ export default {
                     // Map the score column to color
                     dimension: 0,
                     inRange: {
-                        color: ['#65B581', '#FFCE34', '#FD665F']
+                        color: ['#65B581']
                     }
                 },
                 series: [
@@ -67,7 +78,7 @@ export default {
         // this.changeData()
     },
     beforeDestroy() {
-        // clearInterval(this.timer)
+        clearInterval(this.timer)
     },
     methods: {
         changeData() {

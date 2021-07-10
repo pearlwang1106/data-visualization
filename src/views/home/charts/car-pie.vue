@@ -25,14 +25,16 @@ export default {
                     trigger: 'item'
                 },
                 legend: {
-                    top: '10%',
-                    left: 'center'
+                    top: '14%',
+                    left: 'left',
+                    orient: 'vertical'
                 },
                 series: [
                     {
-                        name: '访问来源',
+                        name: '车俩统计',
                         type: 'pie',
                         radius: ['40%', '70%'],
+                        left: '20%',
                         avoidLabelOverlap: false,
                         itemStyle: {
                             borderRadius: 10,
@@ -54,11 +56,11 @@ export default {
                             show: false
                         },
                         data: [
-                            {value: 1048, name: '搜索引擎'},
-                            {value: 735, name: '直接访问'},
-                            {value: 580, name: '邮件营销'},
-                            {value: 484, name: '联盟广告'},
-                            {value: 300, name: '视频广告'}
+                            {value: 1048, name: '车辆型号A'},
+                            {value: 735, name: '车辆型号B'},
+                            {value: 580, name: '车辆型号C'},
+                            {value: 484, name: '车辆型号D'},
+                            {value: 300, name: '车辆型号E'}
                         ]
                     }
                 ]
