@@ -1,14 +1,11 @@
 <template lang="pug">
-    div(
-        class="category-three-box"
-    )
-        FEcharts(
-            :options="chartOptions"
-        )
+    .category-three-box
+        FEcharts(:options="chartOptions")
 </template>
 
 <script>
 import FEcharts from '../../../components/charts/index.vue';
+import { CHART_OPTIONS, HOME_CHART_OPTIONS } from '../../../utils/chart';
 
 export default {
     name: "category-left-btm",
@@ -19,35 +16,25 @@ export default {
         return {
             timer: null,
             chartOptions: {
+                ...CHART_OPTIONS,
+                ...HOME_CHART_OPTIONS,
                 title: {
-                    text: '视频监控'
-                },
-                tooltip: {
-                    trigger: 'axis',
-                    axisPointer: {
-                        type: 'cross',
-                        label: {
-                            backgroundColor: '#283b56'
-                        }
-                    }
-                },
-                grid: {
-                    left: '3%',
-                    right: '14%',
-                    bottom: '3%',
-                    containLabel: true
+                    ...HOME_CHART_OPTIONS.title,
+                    text: '视频监控',
                 },
                 visualMap: {
                     show: false,
                     inRange: {
-                        color: ['#91d5ff']
+                        color: ['#f05326']
                     }
                 },
                 xAxis: {
+                    ...HOME_CHART_OPTIONS.xAxis,
                     name: '数量',
                     type: 'value'
                 },
                 yAxis: {
+                    ...HOME_CHART_OPTIONS.yAxis,
                     name: '设备名称',
                     type: 'category',
                     axisLine: {onZero: false},

@@ -12,7 +12,37 @@ const COLORS = [
   '#93c555',
   '#5f6694',
   '#df3881',
-]
+];
+
+const TEXT_COLOR = '#b7c9e0';
+
+const AXIS_STYLE = {
+  nameTextStyle: {
+    color: TEXT_COLOR,
+  },
+  axisTick: {
+    inside: true,
+  },
+  axisLabel: {
+    color: TEXT_COLOR,
+  },
+  splitLine: {
+    lineStyle: {
+      width: 0.5,
+      type: 'dashed',
+      color: ['#f1f1f1'],
+    },
+  },
+};
+
+const LEGEND_STYLE = {
+  itemStyle: {
+    borderWidth: 0,
+  },
+  textStyle: {
+    color: TEXT_COLOR,
+  }
+};
 
 export const CHART_OPTIONS = {
   title: {
@@ -44,7 +74,56 @@ export const CHART_OPTIONS = {
     data: [],
   },
   yAxis: {
-    type: 'value'
+    type: 'value',
+    splitLine: {
+      lineStyle: {
+        width: 0.5,
+        type: 'dashed',
+        color: ['#f1f1f1'],
+      },
+    },
+  },
+  dataset: {},
+  series: [],
+};
+
+export const HOME_CHART_OPTIONS = {
+  title: {
+    text: '',
+    textStyle: {
+      color: TEXT_COLOR,
+    }
+  },
+  color: COLORS,
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+        type: 'cross',
+        label: {
+            backgroundColor: '#283b56'
+        }
+    }
+  },
+  legend: {
+    ...LEGEND_STYLE,
+  },
+  grid: {
+    left: '3%',
+    right: '8%',
+    bottom: '3%',
+    containLabel: true
+  },
+  toolbox: {
+    show: false,
+  },
+  xAxis: {
+    ...AXIS_STYLE,
+    type: 'category',
+    // data: [],
+  },
+  yAxis: {
+    ...AXIS_STYLE,
+    type: 'value',
   },
   dataset: {},
   series: [],

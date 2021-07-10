@@ -5,6 +5,7 @@
 
 <script>
 import Charts from '../../../components/charts/index.vue';
+import { CHART_OPTIONS, HOME_CHART_OPTIONS } from '../../../utils/chart';
 
 export default {
     name: "statistics-visitor",
@@ -15,26 +16,16 @@ export default {
         return {
             timer: null,
             chartOptions: {
+                ...CHART_OPTIONS,
+                ...HOME_CHART_OPTIONS,
                 title: {
-                    text: '客流统计-访客统计'
+                    ...HOME_CHART_OPTIONS.title,
+                    text: '客流统计-访客统计',
                 },
-                tooltip: {
-                    trigger: 'axis',
-                    axisPointer: {
-                        type: 'cross',
-                        label: {
-                            backgroundColor: '#6a7985'
-                        }
-                    }
-                },
-                grid: {
-                    left: '3%',
-                    right: '8%',
-                    bottom: '3%',
-                    containLabel: true
-                },
+                color: ['#45a776'],
                 xAxis: [
                     {
+                        ...HOME_CHART_OPTIONS.xAxis,
                         type: 'category',
                         name: '日期',
                         boundaryGap: false,
@@ -43,6 +34,7 @@ export default {
                 ],
                 yAxis: [
                     {
+                        ...HOME_CHART_OPTIONS.yAxis,
                         type: 'value',
                         name: '客流量'
                     }

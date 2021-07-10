@@ -4,7 +4,8 @@
 </template>
 
 <script>
-import Charts from '../../../components/charts/index.vue'
+import Charts from '../../../components/charts/index';
+import { CHART_OPTIONS, HOME_CHART_OPTIONS } from '../../../utils/chart';
 
 export default {
     name: "statistics-car",
@@ -15,31 +16,15 @@ export default {
         return {
             timer: null,
             chartOptions: {
+                ...CHART_OPTIONS,
+                ...HOME_CHART_OPTIONS,
                 title: {
-                    text: '客流统计-车辆统计'
-                },
-                tooltip: {
-                    trigger: 'axis',
-                    axisPointer: {
-                        type: 'cross',
-                        label: {
-                            backgroundColor: '#283b56'
-                        }
-                    }
-                },
-                grid: {
-                    left: '3%',
-                    right: '8%',
-                    bottom: '0%',
-                    containLabel: true
-                },
-                dataZoom: {
-                    show: false,
-                    start: 0,
-                    end: 100
+                    ...HOME_CHART_OPTIONS.title,
+                    text: '客流统计-车辆统计',
                 },
                 xAxis: [
                     {
+                        ...HOME_CHART_OPTIONS.xAxis,
                         type: 'category',
                         name: '日期',
                         boundaryGap: true,
@@ -48,6 +33,7 @@ export default {
                 ],
                 yAxis: [
                     {
+                        ...HOME_CHART_OPTIONS.yAxis,
                         type: 'value',
                         scale: true,
                         name: '客流量',

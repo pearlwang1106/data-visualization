@@ -1,21 +1,21 @@
 <template lang="pug">
-    div(class="information-circular")
-        //- Charts(:options="chartOptions")
-        div(class="monitor-title") 信息通告
+    .information-circular
+        p.monitor-title 信息通告
         VueSeamlessScroll(
             :data="CardPartsStatisticsList"
             class="seamless-warp"
             :class-option="classOption")
-                el-row(v-for="(item,index) in CardPartsStatisticsList"
+                el-row.info-item(
+                    v-for="(item,index) in CardPartsStatisticsList"
                     :key="index")
-                        el-col(:span="20" style="text-align: left") {{item.desc}}
+                        el-col.d-line-clamp1(:span="20" style="text-align: left") {{item.desc}}
                         el-col(:span="4" style="text-align: right") {{item.time}}
 
 </template>
 
 <script>
-import Charts from '../../../components/charts/index.vue';
-import VueSeamlessScroll from 'vue-seamless-scroll'
+import Charts from '../../../components/charts/index';
+import VueSeamlessScroll from 'vue-seamless-scroll';
 
 export default {
     name: "information-circular",
@@ -48,19 +48,19 @@ export default {
             },
             CardPartsStatisticsList: [
                 {
-                    desc: '显示信息通告数据',
+                    desc: '显示信息通告数据显示信息通告数据显示信息通告数据显示信息通告数据',
                     time: '07-10'
                 },
                 {
-                    desc: '显示信息通告数据',
+                    desc: '显示信息通告数据显示信息通告数据显示信息通告数据显示信息通告数据',
                     time: '07-10'
                 },
                 {
-                    desc: '显示信息通告数据',
+                    desc: '显示信息通告数据显示信息通告数据显示信息通告数据显示信息通告数据',
                     time: '07-10'
                 },
                 {
-                    desc: '显示信息通告数据',
+                    desc: '显示信息通告数据显示信息通告数据显示信息通告数据显示信息通告数据',
                     time: '07-10'
                 },
                 {
@@ -117,32 +117,28 @@ export default {
 
 <style lang="less" scoped>
 .information-circular {
-    width: 100%;
+    width: calc(100% + 16px);
     height: 220px;
+    margin: 0 -8px;
 }
 .monitor-title {
     font-size: 18px;
-    font-weight: bold;
+    line-height: 32px;
+    font-weight: 500;
+    padding: 0 8px;
 }
-.monitor-table-head {
-    height: 100%;
-    background-color: #e6f7ff;
-    height: 36px;
-    line-height: 36px;
-    .el-col {
-        text-align: center;
-    }
-}
-.seamless-warp{
+.seamless-warp {
   width: 100%;
   height: calc(100% - 48px);
   margin-top: 18px;
   overflow: hidden;
-    .el-row {
+    .info-item {
+        font-size: 14px;
+        padding: 0 8px;
         height: 36px;
         line-height: 36px;
         &:nth-child(2n) {
-            background-color: #d9d9d9;
+            background-color: rgba(0, 0, 0, .15);
         }
     }
     .el-col {
