@@ -95,12 +95,15 @@ export default {
 .homeIndex{
     width: 100%;
     height: 100%;
+    
 }
 .home-box {
   width: 100%;
   height: 100%;
   // width: 2880px;
-  background: #002766;
+  // background: #002766;
+  background:url('../../assets/bg.jpeg') no-repeat center;
+  background-size: cover;
   padding: 20px !important;
   .el-card {
     // background-color: rgba(186,231,255, 0.6); 135 232 222
