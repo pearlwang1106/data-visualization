@@ -1,29 +1,31 @@
 <template lang="pug">
-    div(
-        class="home-echarts-one"
-    )
-        FEcharts(
-            :options="chartOptions"
-        )
+    div(class="car-pie")
+        Charts(:options="chartOptions")
+        
 </template>
 
 <script>
-import FEcharts from '../../../components/charts/index.vue'
+import Charts from '../../../components/charts/index.vue'
+import VueSeamlessScroll from 'vue-seamless-scroll'
 
 export default {
-    name: "pie-right-top",
+    name: "car-pie",
     components: {
-        FEcharts
+        Charts,
+        VueSeamlessScroll
     },
     data() {
         return {
             timer: null,
             chartOptions: {
+                title: {
+                    text: '车辆统计'
+                },
                 tooltip: {
                     trigger: 'item'
                 },
                 legend: {
-                    top: '5%',
+                    top: '10%',
                     left: 'center'
                 },
                 series: [
@@ -32,6 +34,11 @@ export default {
                         type: 'pie',
                         radius: ['40%', '70%'],
                         avoidLabelOverlap: false,
+                        itemStyle: {
+                            borderRadius: 10,
+                            borderColor: '#fff',
+                            borderWidth: 2
+                        },
                         label: {
                             show: false,
                             position: 'center'
@@ -49,7 +56,9 @@ export default {
                         data: [
                             {value: 1048, name: '搜索引擎'},
                             {value: 735, name: '直接访问'},
-                            {value: 580, name: '邮件营销'}
+                            {value: 580, name: '邮件营销'},
+                            {value: 484, name: '联盟广告'},
+                            {value: 300, name: '视频广告'}
                         ]
                     }
                 ]
@@ -60,7 +69,7 @@ export default {
         // this.changeData()
     },
     beforeDestroy() {
-        // clearInterval(this.timer)
+        clearInterval(this.timer)
     },
     methods: {
         changeData() {
@@ -76,7 +85,7 @@ export default {
 </script>
 
 <style lang="less">
-.home-echarts-one {
+.car-pie {
     width: 100%;
     height: 220px;
 }

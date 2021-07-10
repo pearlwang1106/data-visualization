@@ -9,7 +9,7 @@
           el-row
             el-col(:span="24")
               el-card(shadow="always")
-                CategoryCenterTop
+                InformationCircular
           el-row.home-box-left-btm
             el-col(:span="24", class="left-btm-height")
               el-card(shadow="always", class="echarts-left-btm")
@@ -52,10 +52,10 @@
           )
             el-col(:span='24', class='echart-one')
               el-card(shadow="always", class="home-center-card")
-                BarLeftTop
+                StatisticsCar
             el-col(:span="24", class='echart-one')
               el-card(shadow="always", class="home-center-card")
-                CategoryCenterBtm
+                StatisticsVisitor
         el-col(
           :span='6',
           class='home-box-right'
@@ -63,7 +63,7 @@
           el-row
             el-col(:span='24')
               el-card(shadow="always")
-                PieRightTop
+                CarPie
           el-row.home-box-left-btm
             el-col(:span='24', class="left-btm-height")
               el-card(shadow="always", class="echarts-left-btm")
@@ -71,22 +71,27 @@
 </template>
 
 <script>
-import CategoryCenterTop from './charts/category-center-top';
-import CategoryCenterBtm from './charts/category-center-btm';
+// 信息通告
+import InformationCircular from './charts/information-circular';
+// 车辆统计
+import CarPie from './charts/car-pie';
+// 客流统计-访客统计
+import StatisticsVisitor from './charts/statistics-visitor';
+// 客流统计-车辆统计
+import StatisticsCar from './charts/statistics-car';
 import categoryLeftBtm from './charts/category-left-btm.vue';
-import BarLeftTop from './charts/bar-left-top';
 import barRightBtm from './charts/bar-right-btm';
-import PieRightTop from './charts/pie-right-top';
+
 
 export default {
   name: 'home',
   components: {
-    CategoryCenterTop,
-    CategoryCenterBtm,
+    InformationCircular,
+    StatisticsVisitor,
     categoryLeftBtm,
-    BarLeftTop,
+    StatisticsCar,
     barRightBtm,
-    PieRightTop
+    CarPie
   }
 }
 </script>
