@@ -1,6 +1,6 @@
 <template lang='pug'>
-el-container#app.container-box
-    el-header.header
+el-container#app.container-box(:class='isHome ? "home-page" : ""')
+    el-header.header(:class='isHome ? "home-header" : ""')
       el-row(style="height: 100%")
         el-col(:lg="3" :xl="1" class="head-logo")
           img(src='./assets/logo.png' width='40' height='40')
@@ -42,6 +42,7 @@ export default {
     return {
       activeKey: '',
       menuList: MENUS,
+      isHome: true,
     };
   },
   components: {
@@ -49,7 +50,9 @@ export default {
     ScreenAdapter
   },
   watch: {
-    
+    '$route' () {
+      this.isHome = this.$route.name === 'home';
+    }
   },
   mounted () {
     this.activeKey = get(this.$route,'matched[0].name', '');
@@ -78,6 +81,11 @@ p {
   width: 100%;
   height: 100%;
 }
+.home-page {
+  background: url('./assets/bg.jpeg') no-repeat center;
+  background-color: rgba(35, 82, 122);
+  background-size: cover;
+}
 .content-box {
   width: 100%;
   height: calc(100% - 52px);
@@ -89,8 +97,12 @@ p {
   line-height: 52px;
 }
 .header {
+  border-bottom: 1px solid rgba(0, 0, 0, .3);
   background-color: #203450;
   color: #fff;
+}
+.home-header {
+  background-color: transparent;
 }
 .head-logo {
   width: auto;
@@ -148,6 +160,11 @@ p {
 }
 .d-ml {
   margin-left: 8px;
+}
+.d-line-clamp1 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .app-weather {
   display: flex;

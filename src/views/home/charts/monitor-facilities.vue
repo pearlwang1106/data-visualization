@@ -1,10 +1,11 @@
 <template lang="pug">
-    div(class="bar-two-box")
+    .bar-two-box
         Charts(:options="chartOptions")
 </template>
 
 <script>
-import Charts from '../../../components/charts/index.vue'
+import Charts from '../../../components/charts/index';
+import { CHART_OPTIONS, HOME_CHART_OPTIONS } from '../../../utils/chart';
 
 export default {
     name: "bar-right-btm",
@@ -15,17 +16,11 @@ export default {
         return {
             timer: null,
             chartOptions: {
+                ...CHART_OPTIONS,
+                ...HOME_CHART_OPTIONS,
                 title: {
-                    text: '设施监控'
-                },
-                tooltip: {
-                    trigger: 'axis',
-                    axisPointer: {
-                        type: 'cross',
-                        label: {
-                            backgroundColor: '#283b56'
-                        }
-                    }
+                    ...HOME_CHART_OPTIONS.title,
+                    text: '设施监控',
                 },
                 dataset: {
                     source: [
@@ -39,14 +34,15 @@ export default {
                         [19.6, 91852, '设备G']
                     ]
                 },
-                grid: {
-                    left:'3%',
-                    bottom: '3%',
-                    right: '15%',
-                    containLabel: true
+                xAxis: {
+                    ...HOME_CHART_OPTIONS.yAxis,
+                    name: '数量'
                 },
-                xAxis: {name: '数量'},
-                yAxis: {type: 'category', name: '设备名称'},
+                yAxis: {
+                    ...HOME_CHART_OPTIONS.xAxis,
+                    type: 'category',
+                    name: '设备名称'
+                },
                 visualMap: {
                     show: false,
                     orient: 'horizontal',
@@ -57,7 +53,8 @@ export default {
                     // Map the score column to color
                     dimension: 0,
                     inRange: {
-                        color: ['#65B581']
+                        // color: ['#93c555']
+                        color: ['#334f65']
                     }
                 },
                 series: [

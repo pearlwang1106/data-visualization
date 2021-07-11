@@ -1,12 +1,13 @@
 <template lang="pug">
-    div(class="car-pie")
+    .car-pie
         Charts(:options="chartOptions")
         
 </template>
 
 <script>
-import Charts from '../../../components/charts/index.vue'
-import VueSeamlessScroll from 'vue-seamless-scroll'
+import Charts from '../../../components/charts/index';
+import VueSeamlessScroll from 'vue-seamless-scroll';
+import { CHART_OPTIONS, HOME_CHART_OPTIONS } from '../../../utils/chart';
 
 export default {
     name: "car-pie",
@@ -18,13 +19,23 @@ export default {
         return {
             timer: null,
             chartOptions: {
+                ...CHART_OPTIONS,
+                ...HOME_CHART_OPTIONS,
                 title: {
-                    text: '车辆统计'
+                    ...HOME_CHART_OPTIONS.title,
+                    text: '车辆统计',
                 },
                 tooltip: {
                     trigger: 'item'
                 },
+                xAxis: {
+                    show: false,
+                },
+                yAxis: {
+                    show: false,
+                },
                 legend: {
+                    ...HOME_CHART_OPTIONS.legend,
                     top: '14%',
                     left: 'left',
                     orient: 'vertical'
@@ -34,12 +45,12 @@ export default {
                         name: '车俩统计',
                         type: 'pie',
                         radius: ['40%', '70%'],
-                        left: '20%',
+                        left: '10%',
                         avoidLabelOverlap: false,
                         itemStyle: {
                             borderRadius: 10,
                             borderColor: '#fff',
-                            borderWidth: 2
+                            borderWidth: 0
                         },
                         label: {
                             show: false,
@@ -48,7 +59,7 @@ export default {
                         emphasis: {
                             label: {
                                 show: true,
-                                fontSize: '40',
+                                fontSize: '32',
                                 fontWeight: 'bold'
                             }
                         },

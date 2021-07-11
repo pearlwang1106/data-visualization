@@ -109,10 +109,14 @@ export default {
   height: 100%;
   // width: 2880px;
   // background: #002766;
-  background:url('../../assets/bg.jpeg') no-repeat center;
-  background-size: cover;
+  // background:url('../../assets/bg.jpeg') no-repeat center;
+  // background-size: cover;
   padding: 20px !important;
   .el-card {
+    border: none;
+    box-shadow: -3px 5px 10px rgba(0, 0, 0, .6);
+    background-color: transparent;
+    color: #b7c9e0;;
     // background-color: rgba(186,231,255, 0.6); 135 232 222
     // background-color: transparent;
     // background-color: rgba(135,232,222,0.2);
@@ -159,18 +163,20 @@ export default {
     }
     span.title {
       font-size: 16px;
+      font-weight: 500;
+      // line-height: 32px;
       // color: #f0f0f0;
     }
     span.number {
-      font-size: 28px;
-      color: #1890ff;
-      font-weight: bold;
+      font-size: 36px;
+      color: #03397d;
+      font-weight: 700;
     }
     span.yellow {
-      color: #ffc53d;
+      color: #cdd066;
     }
     span.green {
-      color: #73d13d;
+      color: #456f2c;
     }
   }
   .home-center-btm{
