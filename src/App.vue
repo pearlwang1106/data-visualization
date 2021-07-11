@@ -13,7 +13,7 @@ el-container#app.container-box(:class='isHome ? "home-page" : ""')
             allowtransparency="true"
             src="https://i.tianqi.com?c=code&id=34&color=%23FFFFFF&icon=1&site=14")
         el-col(:lg="17" :xl="20")
-          el-menu(mode='horizontal' background-color='#203450' text-color='#FFF' :default-active='activeKey')
+          el-menu(mode='horizontal' background-color='transparent' text-color='#FFF' :default-active='activeKey')
             el-menu-item(
               v-for='(item, key) in menuList'
               :key='key'
@@ -103,6 +103,10 @@ p {
 }
 .home-header {
   background-color: transparent;
+  // .el-menu--horizontal .el-menu-item:not(.is-disabled):focus,
+  .el-menu--horizontal .el-menu-item:not(.is-disabled):hover {
+    background-color: rgba(0, 0, 0, .6)!important;
+  }
 }
 .head-logo {
   width: auto;
@@ -126,6 +130,10 @@ p {
 .el-menu--horizontal>.el-menu-item {
   height: 52px!important;
   line-height: 52px!important;
+}
+.el-menu--horizontal .el-menu-item:not(.is-disabled):focus,
+.el-menu--horizontal .el-menu-item:not(.is-disabled):hover {
+  background-color: rgba(0, 0, 0, .3)!important;
 }
 .el-menu--horizontal>.el-menu-item.is-active {
   font-weight: 600;
