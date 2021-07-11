@@ -2,9 +2,9 @@
 el-container#app.container-box(:class='isHome ? "home-page" : ""')
     el-header.header(:class='isHome ? "home-header" : ""')
       el-row(style="height: 100%")
-        el-col(:span='3' class="head-logo")
+        el-col(:lg="3" :xl="1" class="head-logo")
           img(src='./assets/logo.png' width='40' height='40')
-        el-col(:span='4', class="app-weather")
+        el-col(:lg="4" :xl="3" class="app-weather")
           iframe(
             width="300"
             scrolling="no"
@@ -12,8 +12,8 @@ el-container#app.container-box(:class='isHome ? "home-page" : ""')
             frameborder="0"
             allowtransparency="true"
             src="https://i.tianqi.com?c=code&id=34&color=%23FFFFFF&icon=1&site=14")
-        el-col(:span='17')
-          el-menu(mode='horizontal' :background-color='isHome ? "transparent" : "#203450"' text-color='#FFF' :default-active='activeKey')
+        el-col(:lg="17" :xl="20")
+          el-menu(mode='horizontal' background-color='#203450' text-color='#FFF' :default-active='activeKey')
             el-menu-item(
               v-for='(item, key) in menuList'
               :key='key'
@@ -30,6 +30,7 @@ el-container#app.container-box(:class='isHome ? "home-page" : ""')
 
 <script>
 // components
+import ScreenAdapter from './components/screen-adapter';
 import Menus from './components/menus';
 // data
 import { MENUS } from './utils/data';
@@ -46,6 +47,7 @@ export default {
   },
   components: {
     Menus,
+    ScreenAdapter
   },
   watch: {
     '$route' () {

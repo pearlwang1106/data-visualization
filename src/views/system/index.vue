@@ -1,7 +1,7 @@
 <template lang="pug">
     el-main.system-box
         el-row(:gutter="20")
-            el-col(:span="6", class="col-item", v-for="(item, index) in dataSource", :key="index")
+            el-col(:md="8" :lg="6" :xl="4", class="col-item", v-for="(item, index) in dataSource", :key="index")
                 el-card(shadow="hover", :body-style="{ padding: '0px' }")
                     a(:href="item.url" target="_blank")
                         img(:src="item.img", class="image")
@@ -9,7 +9,7 @@
                             span.title {{item.title}}
                             div(class="bottom clearfix")
                                 span.mark {{item.mark}}
-            el-col(:span="6", class="col-item")
+            el-col(:md="8" :lg="6" :xl="4", class="col-item")
                 el-card(shadow="hover", class="extra-card")
                     i(class="el-icon-plus")
 </template>
