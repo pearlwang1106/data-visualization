@@ -103,6 +103,7 @@ p {
 }
 .home-header {
   background-color: transparent;
+  border-bottom:0px;
   // .el-menu--horizontal .el-menu-item:not(.is-disabled):focus,
   .el-menu--horizontal .el-menu-item:not(.is-disabled):hover {
     background-color: rgba(0, 0, 0, .6)!important;

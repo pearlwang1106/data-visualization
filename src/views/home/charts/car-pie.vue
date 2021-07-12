@@ -45,7 +45,7 @@ export default {
                         name: '车俩统计',
                         type: 'pie',
                         radius: ['40%', '70%'],
-                        left: '10%',
+                        left: '16%',
                         avoidLabelOverlap: false,
                         itemStyle: {
                             borderRadius: 10,
