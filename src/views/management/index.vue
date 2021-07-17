@@ -1,6 +1,6 @@
 <template lang='pug'>
   el-container.content
-    el-aside(width='140px')
+    el-aside(width='200px')
       Menus(:list='list')
     el-main.management-content
       router-view

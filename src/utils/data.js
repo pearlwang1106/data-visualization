@@ -2,9 +2,11 @@
 export const MENUS = {
   home: {
     label: '首页',
+    icon: require('../assets/icon-home.png')
   },
   management: {
     label: '出入管理',
+    icon: require('../assets/icon-manage.png'),
     children: [{
       value: 'guards',
       label: '门禁监控',
@@ -21,6 +23,7 @@ export const MENUS = {
   },
   monitor: {
     label: '监控预警',
+    icon: require('../assets/icon-monitor.png'),
     children: [{
       value: 'fire',
       label: '消防监控',
@@ -40,5 +43,6 @@ export const MENUS = {
   },
   system: {
     label: '系统集成',
+    icon: require('../assets/icon-system.png')
   }
 }
