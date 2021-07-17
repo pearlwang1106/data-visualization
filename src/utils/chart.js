@@ -46,7 +46,10 @@ const LEGEND_STYLE = {
 
 export const CHART_OPTIONS = {
   title: {
-    text: ''
+    text: '',
+    textStyle: {
+      color: '#fff'
+    },
   },
   color: COLORS,
   tooltip: {
@@ -72,16 +75,43 @@ export const CHART_OPTIONS = {
   xAxis: {
     type: 'category',
     data: [],
+    axisLine: {
+      show: true,
+      lineStyle: {
+        width: 2,
+        color: '#1890ff'
+      }
+    },
+    axisLabel: {
+      color: '#fff',
+      fontWeight: 'bold'
+    },
   },
   yAxis: {
     type: 'value',
+    // splitLine: {
+    //   lineStyle: {
+    //     width: 0.5,
+    //     type: 'dashed',
+    //     color: ['#f1f1f1'],
+    //   },
+    // },
+    axisLine: {
+      show: true,
+      lineStyle: {
+        width: 2,
+        color: '#1890ff'
+      }
+    },
+    axisLabel: {
+      color: '#fff',
+      fontWeight: 'bold'
+    },
     splitLine: {
       lineStyle: {
-        width: 0.5,
-        type: 'dashed',
-        color: ['#f1f1f1'],
-      },
-    },
+        width: 0
+      }
+    }
   },
   dataset: {},
   series: [],

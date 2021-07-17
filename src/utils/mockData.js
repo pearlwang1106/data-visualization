@@ -112,37 +112,63 @@ export const mockTableData = [
     "url": "https://news.china.com/domestic/945/20210710/39737874.html"
   }
 ];
-export const mockXAix = ['周一', '周二', '周三', '周四', '周五', '周六', '周日'];
-export const mockChartData = [{
-  name: '邮件营销',
+// export const mockXAix = ['周一', '周二', '周三', '周四', '周五', '周六', '周日'];
+export const mockXAix = function() {
+  var list = [];
+  console.log('list', list)
+  for (var i = 1; i <= 31; i++) {
+      if(i < 10) {
+        list.push('05/0' + i);
+      } else {
+        list.push('05/0' + i);
+      }  
+  }
+  return list;
+}()
+export const mockChartData = [
+//   {
+//   name: '邮件营销',
+//   // type: 'line',
+//   // stack: '总量',
+//   data: [120, 132, 101, 134, 90, 230, 210]
+// },
+// {
+//   name: '联盟广告',
+//   // type: 'line',
+//   // stack: '总量',
+//   data: [220, 182, 191, 234, 290, 330, 310]
+// },
+// {
+//   name: '视频广告',
+//   // type: 'line',
+//   // stack: '总量',
+//   data: [150, 232, 201, 154, 190, 330, 410]
+// },
+{
+  name: '7F',
   // type: 'line',
   // stack: '总量',
-  data: [120, 132, 101, 134, 90, 230, 210]
+  // data: [320, 332, 301, 334, 390, 330, 320, 320, 332, 301, 334, 390, 330, 320]
+  data: getChartsNum()
 },
 {
-  name: '联盟广告',
+  name: '6F',
   // type: 'line',
   // stack: '总量',
-  data: [220, 182, 191, 234, 290, 330, 310]
-},
-{
-  name: '视频广告',
-  // type: 'line',
-  // stack: '总量',
-  data: [150, 232, 201, 154, 190, 330, 410]
-},
-{
-  name: '直接访问',
-  // type: 'line',
-  // stack: '总量',
-  data: [320, 332, 301, 334, 390, 330, 320]
-},
-{
-  name: '搜索引擎',
-  // type: 'line',
-  // stack: '总量',
-  data: [820, 932, 901, 934, 1290, 1330, 1320]
-}];
+  // data: [820, 932, 901, 934, 1290, 1330, 820, 932, 901, 934, 1290, 1330, 450, 620]
+  data: getChartsNum()
+}
+];
+function getChartsNum() {
+  let list = [];
+  for(let i = 0; i < 31; i++) {
+    list.push(getRandomNumberByRange(0, 1500))
+  }
+  return list;
+}
+function getRandomNumberByRange(start, end) {
+  return Math.floor(Math.random() * (end - start) + start)
+}
 export const mockSystemData = [{
     title: 'AntV',
     mark: '全新一代数据可视化解决方案',

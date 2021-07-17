@@ -106,7 +106,9 @@ p {
 .header {
   border-bottom: 1px solid rgba(0, 0, 0, .3);
   // background-color: #203450;
-  background: #001529;
+  // background: #001529;
+  // background-color: #011645;
+  background-color: #011133;
   color: #fff;
 }
 .home-header {
