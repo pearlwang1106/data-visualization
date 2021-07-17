@@ -1,22 +1,28 @@
 <template lang='pug'>
-  section(style="height: 100%")
+  section(style="height: calc(100% - 56px)")
     section.search-btn
+      el-radio-group(v-model="radio1" style="margin-right: 16px")
+        el-radio-button(label="日")
+        el-radio-button(label="周")
+        el-radio-button(label="月")
+        el-radio-button(label="年")
       el-date-picker(v-model="value1"
         type="daterange"
         range-separator="至"
         start-placeholder="开始日期"
         end-placeholder="结束日期")
+      el-button(type="primary" class="search-button") 检索
     section.chart-wrapper
       el-row(style="width: 100%;height: 100%")
         el-col(:span="12" style="height: 100%")
           chart(:options='optionsOne')
         el-col(:span="12" style="height: 100%")
           chart(:options='optionsTwo')
-    section(class="chart-wrapper marginTop")
+    section(class="chart-wrapper")
       chart(:options='options')
-    //- list.d-mt(url='' :params='{}' :onOpearClick='handleOperaClick')
-    section(class="chart-wrapper marginTop")
+    section(class="chart-wrapper section-three")
       chart(:options='optionsThree')
+    //- list.d-mt(url='' :params='{}' :onOpearClick='handleOperaClick')
 </template>
 
 <script>
@@ -37,6 +43,7 @@ import Mixins from '../../../mixins';
 export default {
   data () {
     return {
+      radio1: '日',
       // 目前为静态
       options: {
         ...CHART_OPTIONS,
@@ -50,11 +57,8 @@ export default {
           bottom: 0
         },
         legend: {
-          data: mockChartData.map(item => item.name),
-          textStyle: {
-            color: '#fff',
-            fontWeight: 'bold'  
-          }
+          ...CHART_OPTIONS.legend,
+          data: mockChartData.map(item => item.name)
         },
         xAxis: {
           ...CHART_OPTIONS.xAxis,
@@ -155,7 +159,7 @@ export default {
         series: [{
             data: [1500, 400, 650, 880, 70, 900, 930, 500, 340, 730, 210, 1200],
             type: 'bar',
-            barWidth: '30',
+            barWidth: '50',
             itemStyle: {
                 color: new echarts.graphic.LinearGradient(
                     0, 0, 0, 1,
@@ -183,21 +187,17 @@ export default {
     // border: 1px solid #f1f1f1;
     border: transparent;
     width: 100%;
-    height: 30%;
+    height: calc((100% - 56px) / 3);
   }
-  .marginTop {
-    margin-top: 3%;
+  .section-three {
+    height: calc((100% - 56px) / 3 - 20px);
+    margin-top: 20px;
   }
   .search-btn {
-    /deep/ .el-input__inner {
-      height: 30px;
-      line-height: 30px;
-    }
-    /deep/ .el-date-editor .el-range__icon {
-      line-height: 25px;
-    }
-    /deep/ .el-date-editor .el-range-separator {
-      line-height: 25px;
+    margin-left: 8px;
+    margin-bottom: 16px;
+    .search-button {
+      margin-left: 16px;
     }
   }
 </style>

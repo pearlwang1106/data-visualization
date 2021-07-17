@@ -59,6 +59,10 @@ export const CHART_OPTIONS = {
     top: '5%',
     left: 'center',
     data: [],
+    textStyle: {
+      color: '#fff',
+      fontWeight: 'bold'  
+    }
   },
   grid: {
     left: '3%',
