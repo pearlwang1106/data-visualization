@@ -42,13 +42,15 @@ export default {
 
 <style scoped>
 .cur-menu {
-  background-color: #001529;
+  /* background-color: #001529; */
+  background-color: #011133;
+  border-right: transparent;
 }
 .el-menu-item {
   color: #bfbfbf;
 }
 .el-menu-item:focus, .el-menu-item:hover {
-  background: #001529;
+  background: #011133;
   color: #fff;
 }
 .el-menu-item.is-active {
