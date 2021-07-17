@@ -1,5 +1,5 @@
 <template lang='pug'>
-  el-menu(:default-active='activeKey')
+  el-menu(:default-active='activeKey' class="cur-menu")
     el-menu-item-group
       el-menu-item(
         v-for='item in list'
@@ -40,5 +40,19 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+.cur-menu {
+  background-color: #001529;
+}
+.el-menu-item {
+  color: #bfbfbf;
+}
+.el-menu-item:focus, .el-menu-item:hover {
+  background: #001529;
+  color: #fff;
+}
+.el-menu-item.is-active {
+  color: #fff;
+  background-color: #1890ff;
+}
 </style>
