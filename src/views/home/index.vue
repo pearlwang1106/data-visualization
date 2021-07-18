@@ -107,7 +107,7 @@ import MonitorVideo from './charts/monitor-video.vue';
 // 设施监控
 import MonitorFacilities from './charts/monitor-facilities';
 // 仪表盘
-import ChartMap from './charts/chart-map';
+// import ChartMap from './charts/chart-map';
 
 
 export default {
@@ -119,7 +119,7 @@ export default {
     StatisticsCar,
     MonitorFacilities,
     CarPie,
-    ChartMap,
+    // ChartMap,
   },
   methods: {
     handleToManagement() {
