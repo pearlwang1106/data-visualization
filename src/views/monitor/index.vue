@@ -39,5 +39,7 @@ export default {
 <style lang='less'>
 .monitor-content {
   padding: 16px!important;
+  background: url('../../assets/other-bg.jpeg') no-repeat center;
+  background-size: cover;
 }
 </style>
