@@ -5,13 +5,16 @@
     :default-openeds='defaultOpends'
     class="cur-menu"
     text-color='#FFF')
+    div.icon-logo
     template(v-for='(item, index) in list')
       el-submenu(
         v-if='item.children && item.children.length'
         :key='item.value'
         :index='item.value'
         @click='handleSubMenuClick(item)')
-        span(slot='title') {{ item.label }}
+        div(slot='title') 
+          img(:src="item.icon" width="20" height="20" style="margin-right: 10px")
+          span {{ item.label }}
         el-menu-item-group(v-for='subItem in item.children' :key='subItem.value')
           el-menu-item(
             :index='subItem.value'
@@ -21,7 +24,10 @@
         v-else
         :index='item.value'
         :key='item.value'
-        @click='handleMenuClick(item.value)') {{ item.label }}
+        @click='handleMenuClick(item.value)')
+        div 
+          img(:src="item.icon" width="20" height="20" style="margin-right: 10px")
+          span {{ item.label }}
 </template>
 
 <script>
@@ -66,7 +72,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="less" scoped>
 .cur-menu {
   background-color: #011133;
   border-right: transparent;
@@ -84,5 +90,18 @@ export default {
 .el-menu-item.is-active {
   color: #fff;
   background-color: #1890ff;
+}
+.el-submenu__title:focus, .el-submenu__title:hover {
+  background-color: #011133;
+}
+/deep/ .el-submenu__title:hover {
+  background-color: #011133;
+}
+.icon-logo {
+  width: 100%;
+  height: 56px;
+  color: #fff;
+  background: url('../../assets/logo.png') no-repeat center;
+  background-size: contain;
 }
 </style>

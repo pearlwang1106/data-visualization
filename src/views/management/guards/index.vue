@@ -25,9 +25,14 @@
           .video-list-item(@click='handleVideoClick') 点击切换
         el-col(:span='12')
           .video-list-item(@click='handleVideoClick') 点击切换
+      el-row.d-mt(:gutter='16')
+        el-col(:span='12')
+          .video-list-item(@click='handleVideoClick') 点击切换
+        el-col(:span='12')
+          .video-list-item(@click='handleVideoClick') 点击切换
     el-col(:span='16')
       video.video-wrapper(
-        height='640'
+        height='920'
         width='100%'
         :src='videoSrc'
         autoplay

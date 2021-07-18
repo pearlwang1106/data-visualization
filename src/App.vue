@@ -1,6 +1,6 @@
 <template lang='pug'>
   el-container#app.container-box(:class='isHome ? "home-page" : ""')
-    el-aside(width='160px' v-if='!isHome')
+    el-aside(width='200px' v-if='!isHome')
       menus
     el-main.main(:class='isHome ? "" : "main-content"')
       router-view
