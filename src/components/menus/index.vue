@@ -1,22 +1,45 @@
 <template lang='pug'>
-  el-menu(:default-active='activeKey' class="cur-menu")
-    el-menu-item-group
-      el-menu-item(
-        v-for='item in list'
+  el-menu(
+    :default-active='activeKey'
+    :unique-opened='true'
+    :default-openeds='defaultOpends'
+    class="cur-menu"
+    text-color='#FFF')
+    template(v-for='(item, index) in list')
+      el-submenu(
+        v-if='item.children && item.children.length'
         :key='item.value'
         :index='item.value'
-        @click='handleMenuClick(item.value)'
-        ) {{ item.label }}
+        @click='handleSubMenuClick(item)')
+        span(slot='title') {{ item.label }}
+        el-menu-item-group(v-for='subItem in item.children' :key='subItem.value')
+          el-menu-item(
+            :index='subItem.value'
+            :key='subItem.value'
+            @click='handleMenuClick(subItem.value)') {{ subItem.label }}
+      el-menu-item(
+        v-else
+        :index='item.value'
+        :key='item.value'
+        @click='handleMenuClick(item.value)') {{ item.label }}
 </template>
 
 <script>
+import { MENUS } from '../../utils/data';
 
 export default {
-  props: ['prePath', 'list'],
   data () {
     return {
       activeKey: '',
+      list: MENUS,
+      defaultOpends: [],
     };
+  },
+
+  watch: {
+    '$route' () {
+      this.isHome = this.$route.name === 'home';
+    }
   },
 
   mounted () {
@@ -24,11 +47,14 @@ export default {
     if (matched[1]) {
       this.activeKey = matched[1].name;
     }
+    this.defaultOpends = [this.activeKey];
   },
 
   methods: {
+    handleSubMenuClick (menu) {
+      this.activeKey = menu.value;
+    },
     handleMenuClick (key) {
-      console.error('key', key);
       if (this.$route.name === key) {
         return;
       }
@@ -42,9 +68,11 @@ export default {
 
 <style scoped>
 .cur-menu {
-  /* background-color: #001529; */
   background-color: #011133;
   border-right: transparent;
+}
+.el-menu-item-group {
+  background-color: #031948;
 }
 .el-menu-item {
   color: #bfbfbf;
