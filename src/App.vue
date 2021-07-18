@@ -1,6 +1,6 @@
 <template lang='pug'>
   el-container#app.container-box(:class='isHome ? "home-page" : ""')
-    el-aside(width='160px' v-if='!isHome')
+    el-aside(width='200px' v-if='!isHome')
       menus
     el-main.main(:class='isHome ? "" : "main-content"')
       router-view
@@ -25,12 +25,12 @@ export default {
   },
   watch: {
     '$route' () {
-      console.error(33, this.$route.name)
+      // console.error(33, this.$route.name)
       this.isHome = this.$route.name === 'home';
     }
   },
   mounted () {
-    console.error(111, this.$route);
+    // console.error(111, this.$route);
     // this.activeKey = get(this.$route,'matched[0].name', '');
     this.isHome = this.$route.name === 'home';
   },
@@ -71,7 +71,7 @@ p {
   height: 100%;
 }
 .home-page {
-  background: url('./assets/bg.jpeg') no-repeat center;
+  background: url('./assets/bg-two.png') no-repeat center;
   background-color: rgba(35, 82, 122);
   background-size: cover;
 }
@@ -161,7 +161,7 @@ p {
   margin-left: 8px;
 }
 .d-font-12 {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 20px;
 }
 .d-line-clamp1 {

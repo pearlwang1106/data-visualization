@@ -1,29 +1,29 @@
 <template lang='pug'>
-  section(style="height: 100%")
-    section.search-btn
-      el-date-picker(v-model="value1"
-        type="daterange"
-        range-separator="至"
-        start-placeholder="开始日期"
-        end-placeholder="结束日期")
+  section(style="height: calc(100% - 56px)")
+    SearchInput(:searchData="searchData")
     section.chart-wrapper
       el-row(style="width: 100%;height: 100%")
-        el-col(:span="12" style="height: 100%")
+        el-col(:span="8" style="height: 100%")
           chart(:options='optionsOne')
-        el-col(:span="12" style="height: 100%")
+        el-col(:span="8" style="height: 100%")
           chart(:options='optionsTwo')
-    section(class="chart-wrapper marginTop")
+        el-col(:span="8" style="height: 100%")
+          chart(:options='optionsOne')
+    section(class="chart-wrapper")
       chart(:options='options')
-    //- list.d-mt(url='' :params='{}' :onOpearClick='handleOperaClick')
-    section(class="chart-wrapper marginTop")
+    section(class="chart-wrapper section-three")
       chart(:options='optionsThree')
+    //- list.d-mt(url='' :params='{}' :onOpearClick='handleOperaClick')
 </template>
 
 <script>
+// api
+import { getDemoData } from '../../../api';
 // components
 import * as echarts from 'echarts';
 import Chart from '../../../components/charts';
 import List from '../../../components/list';
+import SearchInput from '../../../components/search-input';
 
 // setting data
 import { CHART_OPTIONS } from '../../../utils/chart';
@@ -50,11 +50,8 @@ export default {
           bottom: 0
         },
         legend: {
-          data: mockChartData.map(item => item.name),
-          textStyle: {
-            color: '#fff',
-            fontWeight: 'bold'  
-          }
+          ...CHART_OPTIONS.legend,
+          data: mockChartData.map(item => item.name)
         },
         xAxis: {
           ...CHART_OPTIONS.xAxis,
@@ -156,7 +153,7 @@ export default {
         series: [{
             data: [1500, 400, 650, 880, 70, 900, 930, 500, 340, 730, 210, 1200],
             type: 'bar',
-            barWidth: '30',
+            barWidth: '50',
             itemStyle: {
                 color: new echarts.graphic.LinearGradient(
                     0, 0, 0, 1,
@@ -175,6 +172,29 @@ export default {
   components: {
     Chart,
     List,
+    SearchInput
+  },
+  methods: {
+    async getEchartsData(url, params) {
+      try {
+        const result = await getDemoData(url, {
+          ...params,
+        });
+        if (result.success) {
+          // success todo
+        }
+      } catch(err) {
+        console.log(err)
+      }
+    },
+    searchData(params) {
+      // 获取每日访问量数据
+      this.getEchartsData(params);
+      // 获取档口日均人数数据
+      // this.getEchartsData(params);
+      // other request data todo
+      // ...
+    }
   }
 }
 </script>
@@ -184,21 +204,10 @@ export default {
     // border: 1px solid #f1f1f1;
     border: transparent;
     width: 100%;
-    height: 30%;
+    height: calc((100% - 56px) / 3);
   }
-  .marginTop {
-    margin-top: 3%;
-  }
-  .search-btn {
-    /deep/ .el-input__inner {
-      height: 30px;
-      line-height: 30px;
-    }
-    /deep/ .el-date-editor .el-range__icon {
-      line-height: 25px;
-    }
-    /deep/ .el-date-editor .el-range-separator {
-      line-height: 25px;
-    }
+  .section-three {
+    height: calc((100% - 56px) / 3 - 20px);
+    margin-top: 20px;
   }
 </style>

@@ -1,6 +1,7 @@
 <template lang='pug'>
   el-container.homeIndex
     el-main.home-box
+      div.header-title 天宇安防智慧园区
       el-row.home-box-row
         el-col(
           :span='6',
@@ -83,7 +84,13 @@
                 MonitorFacilities
               el-card(shadow="always", class="echarts-left-btm")
                 MonitorVideo
-            
+      div.menu-box   
+        div.menu-box-item(@click="handleToManagement")
+          span(style="margin-left: 50px;") 出入管理
+        div.menu-box-item(@click="handleToMonitor")
+          span 监控预警
+        div.menu-box-item(@click="handleToSystem")
+          span(style="margin-right: 50px;") 系统集成
 </template>
 
 <script>
@@ -100,7 +107,7 @@ import MonitorVideo from './charts/monitor-video.vue';
 // 设施监控
 import MonitorFacilities from './charts/monitor-facilities';
 // 仪表盘
-import ChartMap from './charts/chart-map';
+// import ChartMap from './charts/chart-map';
 
 
 export default {
@@ -112,7 +119,18 @@ export default {
     StatisticsCar,
     MonitorFacilities,
     CarPie,
-    ChartMap,
+    // ChartMap,
+  },
+  methods: {
+    handleToManagement() {
+      this.$router.push({name: 'guards'});
+    },
+    handleToMonitor() {
+      this.$router.push({name: 'fire'});
+    },
+    handleToSystem() {
+      this.$router.push({name: 'system'});
+    }
   }
 }
 </script>
@@ -152,6 +170,9 @@ export default {
   }
   .home-box-row {
     height: 100%;
+    padding-left: 100px;
+    padding-right: 100px;
+    margin-top: 60px;
   }
   .home-box-left {
     height: 100%;
@@ -181,8 +202,8 @@ export default {
     box-sizing: border-box;
   }
   .home-center-top {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 140px;
+    padding-right: 140px;
     .el-card__body {
       display: flex;
       flex-direction: column;
@@ -193,19 +214,21 @@ export default {
     }
     .title {
       color: #b7c9e0;
-      font-size: 16px;
+      font-size: 20px;
       font-weight: 500;
       text-shadow: none;
       // line-height: 32px;
       // color: #f0f0f0;
     }
     .index-card {
-      border-left: 5px solid rgba(238, 255, 0, .5);
+      border-left: 8px solid rgba(238, 255, 0, .5);
       box-shadow: none;
       padding-left: 8px;
       // color: rgba(21, 45, 90, .8);
       color: rgb(238, 255, 0);
       text-shadow: 0 0 25px rgb(238, 255, 0);
+      width: 200px;
+      margin: 0 auto;
       .desc {
         margin-top: 12px;
         color: #fff;
@@ -240,7 +263,7 @@ export default {
     }
     .number {
       font-family: yjsz;
-      font-size: 40px;
+      font-size: 50px;
       line-height: 30px;
     }
     // span.yellow {
@@ -256,7 +279,7 @@ export default {
     // left: 1.4rem;
     z-index: 1;
     width: 100%;
-    height: 500px;
+    height: 1140px;
     background: url(../../assets/lbx.png) no-repeat;
     background-size: 90%;
     background-position: center;
@@ -293,6 +316,46 @@ export default {
   {
   from {transform: rotate(0deg);}
   to {transform: rotate(-359deg);}
+  }
+}
+.header-title {
+  color: #fff;
+  font-size: 50px;
+  font-weight: bold;
+  text-align: center;
+}
+.menu-box {
+  position: absolute;
+  bottom: 100px;
+  width: 700px;
+  height: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  // background:#f00;
+  display: flex;
+  &-item {
+    width: 200px;
+    height: auto;
+    background: url('../../assets/caifen-01.png') no-repeat center;
+    background-size: contain;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    &:not(:last-child) {
+      margin-right: 40px;
+    }
+    &:nth-child(2) {
+      background: url('../../assets/caifen-02.png') no-repeat center;
+      background-size: contain;
+    }
+    &:nth-child(3) {
+      background: url('../../assets/caifen-05.png') no-repeat center;
+      background-size: contain;
+    }
   }
 }
 </style>

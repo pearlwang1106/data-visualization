@@ -1,6 +1,6 @@
 import * as echarts from 'echarts';
 // 引入中国地图数据
-import "echarts/map/js/china.js";
+// import "echarts/map/js/china.js";
 import { citys } from './map-data';
 const allData = citys;
 export const option8 = {
