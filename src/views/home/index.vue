@@ -337,6 +337,7 @@ export default {
   transform: translateX(-50%);
   // background:#f00;
   display: flex;
+  opacity: 0.8;
   &-item {
     width: 200px;
     height: auto;
@@ -359,6 +360,9 @@ export default {
     &:nth-child(3) {
       background: url('../../assets/caifen-05.png') no-repeat center;
       background-size: contain;
+    }
+    &:hover {
+      transform: scale(1.2);
     }
   }
 }
