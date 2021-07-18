@@ -18,7 +18,8 @@
                 StatisticsCar
             el-col(:span="24")
               el-card(shadow="always", class="echarts-left-btm")
-                StatisticsVisitor
+                CustomIndex
+                //- StatisticsVisitor
         el-col(
           :span='12',
           class='home-box-center'
@@ -83,7 +84,8 @@
               el-card(shadow="always", class="echarts-left-btm")
                 MonitorFacilities
               el-card(shadow="always", class="echarts-left-btm")
-                MonitorVideo
+                //- MonitorVideo
+                CustomIndex
       div.menu-box   
         div.menu-box-item(@click="handleToManagement")
           span(style="margin-left: 50px;") 出入管理
@@ -108,6 +110,7 @@ import MonitorVideo from './charts/monitor-video.vue';
 import MonitorFacilities from './charts/monitor-facilities';
 // 仪表盘
 // import ChartMap from './charts/chart-map';
+import CustomIndex from './charts/custom-index';
 
 
 export default {
@@ -119,6 +122,7 @@ export default {
     StatisticsCar,
     MonitorFacilities,
     CarPie,
+    CustomIndex,
     // ChartMap,
   },
   methods: {
@@ -180,7 +184,7 @@ export default {
   .home-box-left-btm {
     height: calc(100% - 240px - 20px);
     .el-card {
-      height: 320px;
+      height: 360px;
     }
   }
   // .left-btm-height {

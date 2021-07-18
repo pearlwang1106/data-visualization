@@ -1,6 +1,7 @@
 <template lang="pug">
     div(class="home-echarts-one")
-        Charts(:options="chartOptions")
+      p.monitor-title 客流统计-车辆统计
+      Charts(:options="chartOptions")
 </template>
 
 <script>
@@ -21,7 +22,10 @@ export default {
                 ...HOME_CHART_OPTIONS,
                 title: {
                     ...HOME_CHART_OPTIONS.title,
-                    text: '客流统计-车辆统计',
+                    // text: '客流统计-车辆统计',
+                    // textStyle: {
+                    //     fontSize: '24px',
+                    // }
                 },
                 xAxis: [
                     {
@@ -99,6 +103,12 @@ export default {
 <style lang="less" scoped>
 .home-echarts-one {
     width: 100%;
-    height: 100%;
+    height: calc(100% - 62px);
+}
+.monitor-title {
+    font-size: 40px;
+    line-height: 60px;
+    font-weight: 500;
+    padding: 0 8px;
 }
 </style>

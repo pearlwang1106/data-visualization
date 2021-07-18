@@ -1,6 +1,7 @@
 <template lang="pug">
     .bar-two-box
-        Charts(:options="chartOptions")
+      p.monitor-title 设施监控
+      Charts(:options="chartOptions")
 </template>
 
 <script>
@@ -21,7 +22,7 @@ export default {
                 ...HOME_CHART_OPTIONS,
                 title: {
                     ...HOME_CHART_OPTIONS.title,
-                    text: '设施监控',
+                    // text: '设施监控',
                 },
                 dataset: {
                     source: [
@@ -101,6 +102,12 @@ export default {
 <style lang="less">
 .bar-two-box {
     width: 100%;
-    height: 100%;
+    height: calc(100% - 62px);
+}
+.monitor-title {
+    font-size: 40px;
+    line-height: 60px;
+    font-weight: 500;
+    padding: 0 8px;
 }
 </style>

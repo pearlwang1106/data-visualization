@@ -118,12 +118,12 @@ export default {
 <style lang="less" scoped>
 .information-circular {
     width: calc(100% + 16px);
-    height: 220px;
+    height: 360px;
     margin: 0 -8px;
 }
 .monitor-title {
-    font-size: 18px;
-    line-height: 32px;
+    font-size: 40px;
+    line-height: 60px;
     font-weight: 500;
     padding: 0 8px;
 }
@@ -133,10 +133,10 @@ export default {
   margin-top: 18px;
   overflow: hidden;
     .info-item {
-        font-size: 14px;
+        font-size: 24px;
         padding: 0 8px;
-        height: 36px;
-        line-height: 36px;
+        height: 52px;
+        line-height: 52px;
         &:nth-child(2n) {
             background-color: rgba(0, 0, 0, .3);
         }

@@ -1,6 +1,7 @@
 <template lang="pug">
     .car-pie
-        Charts(:options="chartOptions")
+      p.monitor-title 车辆管理
+      Charts(:options="chartOptions")
         
 </template>
 
@@ -23,7 +24,7 @@ export default {
                 ...HOME_CHART_OPTIONS,
                 title: {
                     ...HOME_CHART_OPTIONS.title,
-                    text: '车辆统计',
+                    // text: '车辆统计',
                 },
                 tooltip: {
                     trigger: 'item'
@@ -38,14 +39,19 @@ export default {
                     ...HOME_CHART_OPTIONS.legend,
                     top: '14%',
                     left: 'left',
-                    orient: 'vertical'
+                    orient: 'vertical',
+                    textStyle: {
+                        fontSize: '24px',
+                        color: '#FFF'
+                    }
                 },
                 series: [
                     {
                         name: '车俩统计',
                         type: 'pie',
-                        radius: ['50%', '70%'],
-                        left: '-26%',
+                        radius: ['30%', '70%'],
+                        // left: '8%',
+                        // top: '5%',
                         avoidLabelOverlap: false,
                         itemStyle: {
                             opacity: 0.9
@@ -95,9 +101,15 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .car-pie {
     width: 100%;
-    height: 160px;
+    height: 300px;
+}
+.monitor-title {
+    font-size: 40px;
+    line-height: 60px;
+    font-weight: 500;
+    padding: 0 8px;
 }
 </style>
