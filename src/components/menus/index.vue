@@ -50,10 +50,13 @@ export default {
 
   mounted () {
     const matched = this.$route.matched;
-    if (matched[1]) {
-      this.activeKey = matched[1].name;
+    console.log('matched', matched);
+    if (matched[0]) {
+      this.activeKey = matched[0].name;
+      const oneKey = matched[0].path.split('-')[0].slice(1);
+      this.defaultOpends.push(oneKey);
+      this.defaultOpends.push(this.activeKey)
     }
-    this.defaultOpends = [this.activeKey];
   },
 
   methods: {

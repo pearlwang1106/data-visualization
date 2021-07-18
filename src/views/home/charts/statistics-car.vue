@@ -77,7 +77,7 @@ export default {
         }
     },
     created() {
-        console.error(99999);
+        // console.error(99999);
         // this.changeData()
     },
     beforeDestroy() {

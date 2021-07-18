@@ -22,7 +22,7 @@ const routes = [
   ...systemRoutes
 ];
 
-console.error('routes', routes)
+// console.error('routes', routes)
 
 const router = new VueRouter({
   mode: 'history',

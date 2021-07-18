@@ -25,12 +25,12 @@ export default {
   },
   watch: {
     '$route' () {
-      console.error(33, this.$route.name)
+      // console.error(33, this.$route.name)
       this.isHome = this.$route.name === 'home';
     }
   },
   mounted () {
-    console.error(111, this.$route);
+    // console.error(111, this.$route);
     // this.activeKey = get(this.$route,'matched[0].name', '');
     this.isHome = this.$route.name === 'home';
   },
