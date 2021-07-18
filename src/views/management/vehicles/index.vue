@@ -1,21 +1,10 @@
 <template lang='pug'>
   section(style="height: calc(100% - 56px)")
-    section.search-btn
-      el-radio-group(v-model="radio1" style="margin-right: 16px")
-        el-radio-button(label="日")
-        el-radio-button(label="周")
-        el-radio-button(label="月")
-        el-radio-button(label="年")
-      el-date-picker(v-model="value1"
-        type="daterange"
-        range-separator="至"
-        start-placeholder="开始日期"
-        end-placeholder="结束日期")
-      el-button(type="primary" class="search-button") 检索
+    SearchInput(:searchData="searchData")
     section.chart-wrapper
       chart(:options='options')
     section(class="chart-wrapper marginTop")
-      el-row
+      el-row(style="height: 100%;")
         el-col(:span="8")
           div(class="beng-col-bg")
             p.center-title 高区换热泵 (45kw/11kw)
@@ -44,8 +33,19 @@
                   div.desc 
                     span(v-if="index === 0") 频率&nbsp;&nbsp;&nbsp;
                     span 50.000HZ
-        el-col(:span="8") 222
-
+        el-col(:span="8" class="chart-center")
+          div.div-tags
+            el-tag(color="#20AE51") 杰出
+            el-tag(color="#FFED44") 优良
+            el-tag(color="#FF9618") 中
+            el-tag(color="#DA462C") 差
+          el-row(style="width: 100%;height: calc(100% - 60px);")
+            el-col(:span="12" style="height: 100%;")
+              div.chart-pie-left
+                chart(:options='optionsLeft')
+            el-col(:span="12" style="height: 100%;")
+              div.chart-pie-right
+                chart(:options='optionsLeft')
         el-col(:span="8")
           div(class="jing-col-bg")
             p.center-title (45kw/11kw)
@@ -79,9 +79,14 @@
 
 <script>
 import * as echarts from 'echarts';
+
+// api
+import { getDemoData } from '../../../api';
+
 // components
 import Chart from '../../../components/charts';
 import List from '../../../components/list';
+import SearchInput from '../../../components/search-input';
 
 // mixins
 import Mixins from '../../../mixins';
@@ -96,7 +101,6 @@ import { mockXAix, mockChartData } from '../../../utils/mockData';
 export default {
   data () {
     return {
-      radio1: '日',
       options: {
         ...CHART_OPTIONS,
         legend: {
@@ -151,14 +155,122 @@ export default {
             data: [20, 22, 33, 45, 63, 10, 20, 23, 23, 16, 12, 62, 20, 22, 33, 45, 63, 10, 20, 23, 23, 16, 12, 62, 10, 14, 15, 50, 60, 45, 42]
         }],
       },
+      optionsLeft: {
+        series: [
+          {
+          type: 'gauge',
+          radius: '80%',
+          axisLine: {
+              lineStyle: {
+                  width: 35,
+                  color: [
+                    [ 0.5, "#DA462C" ],//0-50%处的颜色
+                    [ 0.7, "#FF9618" ],//51%-70%处的颜色
+                    [ 0.9, "#FFED44" ],//70%-90%处的颜色
+                    [ 1,"#20AE51" ]//90%-100%处的颜色
+                  ]
+              }
+          },
+          axisTick: {
+              show: false,
+          },
+          splitLine: {
+              show:false,
+          },
+          axisLabel: {
+              show: false,
+          },
+          detail: {
+              show: false,
+          },
+          data: [{
+              value: 70
+          }]
+      },
+          {
+          type: 'gauge',
+          radius: '60%',
+          title: {
+            color: '#fff',
+            fontSize: 30
+          },
+          axisLine: {
+              lineStyle: {
+                  width: 35,
+                  color: [
+                      [1, '#002766']
+                  ]
+              }
+          },
+          pointer: {
+              itemStyle: {
+                  color: 'auto'
+              }
+          },
+          axisTick: {
+              distance: -30,
+              length: 10,
+              lineStyle: {
+                  color: '#fff',
+                  width: 2
+              }
+          },
+          splitLine: {
+              distance: -35,
+              length: 35,
+              lineStyle: {
+                  color: '#fff',
+                  width: 2
+              }
+          },
+          axisLabel: {
+              color: '#fff',
+              distance: 40,
+              fontSize: 20
+          },
+          detail: {
+              valueAnimation: true,
+              formatter: '{value}',
+              color: 'auto'
+          },
+          data: [{
+              value: 70,
+              name: 'COP'
+          }]
+      }
+      ]
+      }
     }
   },
 
   mixins: [Mixins],
+
   components: {
     Chart,
     List,
+    SearchInput
   },
+
+  methods: {
+    async getEchartsData(url, params) {
+      try {
+        const result = await getDemoData(url, {
+          ...params,
+        });
+        if (result.success) {
+          // success todo
+        }
+      } catch(err) {
+        console.log(err)
+      }
+    },
+    searchData(params) {
+      // 获取ecahrts图表数据
+      this.getEchartsData(params);
+      // other request data todo
+      // ...
+    }
+  }
 }
 </script>
 
@@ -169,15 +281,8 @@ export default {
     width: 100%;
     height: calc((100% - 56px) / 2);
   }
-  .search-btn {
-    margin-left: 8px;
-    margin-bottom: 16px;
-    .search-button {
-      margin-left: 16px;
-    }
-  }
   .marginTop {
-    margin-top: 3%;
+    margin-top: 2%;
   }
   p.center-title {
     font-size: 16px;
@@ -210,5 +315,22 @@ export default {
     padding: 10px;
     box-sizing: border-box;
     margin-left: 8px;
+  }
+  .chart-center {
+    height: 100%;
+  }
+  .chart-pie-left {
+    height: 100%;
+  }
+  .chart-pie-right {
+    height: 100%;
+  }
+  .div-tags {
+    text-align: center;
+    /deep/ .el-tag {
+      border-color: transparent;
+      color: #fff;
+      margin-right: 10px;
+    }
   }
 </style>

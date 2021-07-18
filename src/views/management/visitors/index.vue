@@ -1,17 +1,6 @@
 <template lang='pug'>
   section(style="height: calc(100% - 56px)")
-    section.search-btn
-      el-radio-group(v-model="radio1" style="margin-right: 16px")
-        el-radio-button(label="日")
-        el-radio-button(label="周")
-        el-radio-button(label="月")
-        el-radio-button(label="年")
-      el-date-picker(v-model="value1"
-        type="daterange"
-        range-separator="至"
-        start-placeholder="开始日期"
-        end-placeholder="结束日期")
-      el-button(type="primary" class="search-button") 检索
+    SearchInput(:searchData="searchData")
     section.chart-wrapper
       el-row(style="width: 100%;height: 100%")
         el-col(:span="12" style="height: 100%")
@@ -26,10 +15,13 @@
 </template>
 
 <script>
+// api
+import { getDemoData } from '../../../api';
 // components
 import * as echarts from 'echarts';
 import Chart from '../../../components/charts';
 import List from '../../../components/list';
+import SearchInput from '../../../components/search-input';
 
 // setting data
 import { CHART_OPTIONS } from '../../../utils/chart';
@@ -43,7 +35,6 @@ import Mixins from '../../../mixins';
 export default {
   data () {
     return {
-      radio1: '日',
       // 目前为静态
       options: {
         ...CHART_OPTIONS,
@@ -178,6 +169,29 @@ export default {
   components: {
     Chart,
     List,
+    SearchInput
+  },
+  methods: {
+    async getEchartsData(url, params) {
+      try {
+        const result = await getDemoData(url, {
+          ...params,
+        });
+        if (result.success) {
+          // success todo
+        }
+      } catch(err) {
+        console.log(err)
+      }
+    },
+    searchData(params) {
+      // 获取每日访问量数据
+      this.getEchartsData(params);
+      // 获取档口日均人数数据
+      // this.getEchartsData(params);
+      // other request data todo
+      // ...
+    }
   }
 }
 </script>
@@ -192,12 +206,5 @@ export default {
   .section-three {
     height: calc((100% - 56px) / 3 - 20px);
     margin-top: 20px;
-  }
-  .search-btn {
-    margin-left: 8px;
-    margin-bottom: 16px;
-    .search-button {
-      margin-left: 16px;
-    }
   }
 </style>

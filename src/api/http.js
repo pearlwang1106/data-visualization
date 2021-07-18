@@ -23,6 +23,7 @@ http.interceptors.request.use(
     error => {
         Vue.prototype.$notify({
             type: 'error',
+            title: '错误',
             message: '服务器累趴了，请稍后重试~'
         })
 
@@ -46,6 +47,7 @@ http.interceptors.response.use(
     error => {
         Vue.prototype.$notify({
             type: 'error',
+            title: '错误',
             message: '网络异常，请稍后重试~'
         })
 
