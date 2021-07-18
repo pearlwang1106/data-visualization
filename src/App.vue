@@ -1,51 +1,21 @@
 <template lang='pug'>
-el-container#app.container-box(:class='isHome ? "home-page" : ""')
-    el-header.header(:class='isHome ? "home-header" : ""')
-      el-row(style="height: 100%")
-        el-col(:lg="3" :xl="1" class="head-logo")
-          img(src='./assets/logo.png' width='64' height='64')
-        //- el-col(:lg="4" :xl="3" class="app-weather")
-          iframe(
-            width="300"
-            scrolling="no"
-            height="24"
-            frameborder="0"
-            allowtransparency="true"
-            src="https://i.tianqi.com?c=code&id=34&color=%23FFFFFF&icon=1&site=14")
-        //- el-col(:lg="17" :xl="20")
-          el-menu(mode='horizontal' background-color='transparent' text-color='#FFF' :default-active='activeKey')
-            el-menu-item(
-              v-for='(item, key) in menuList'
-              :key='key'
-              :index='key'
-              @click='$router.push({name: key})')
-              div
-                img(:src="item.icon" width="20" height="20")
-                span {{ item.label }}
-
-
-    el-main.main
+  el-container#app.container-box(:class='isHome ? "home-page" : ""')
+    el-aside(width='160px' v-if='!isHome')
+      menus
+    el-main.main(:class='isHome ? "" : "main-content"')
       router-view
-
-    //- el-footer.footer(v-if='$route.name !== "home"')
-    //-   p footer 信息
-    //-   p 2021 @Copyright
 </template>
 
 <script>
 // components
 import ScreenAdapter from './components/screen-adapter';
 import Menus from './components/menus';
-// data
-import { MENUS } from './utils/data';
 // utils
-import { get } from 'lodash';
+// import { get } from 'lodash';
 export default {
   name: 'App',
   data () {
     return {
-      activeKey: '',
-      menuList: MENUS,
       isHome: true,
     };
   },
@@ -55,11 +25,14 @@ export default {
   },
   watch: {
     '$route' () {
+      console.error(33, this.$route.name)
       this.isHome = this.$route.name === 'home';
     }
   },
   mounted () {
-    this.activeKey = get(this.$route,'matched[0].name', '');
+    console.error(111, this.$route);
+    // this.activeKey = get(this.$route,'matched[0].name', '');
+    this.isHome = this.$route.name === 'home';
   },
   methods: {
   },
@@ -84,6 +57,14 @@ p {
   color: #333;
   width: 100%;
   height: 100vh;
+}
+.main {
+  padding: 0!important;
+}
+.main-content {
+  padding: 16px!important;
+  background: url('./assets/other-bg.jpeg') no-repeat center;
+  background-size: cover;
 }
 .container-box {
   width: 100%;
@@ -132,9 +113,6 @@ p {
     object-fit: cover;
   }
 }
-.main {
-  height: calc(100vh - 104px);
-}
 .footer {
   text-align: center;
   line-height: 24px;
@@ -157,9 +135,6 @@ p {
 }
 .el-menu.el-menu--horizontal {
   border-bottom: 0px !important;
-}
-.el-main {
-  padding: 0!important;
 }
 .el-aside,
 .el-menu,

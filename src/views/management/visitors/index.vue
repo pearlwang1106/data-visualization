@@ -63,6 +63,7 @@ export default {
         series: mockChartData.map(item => {
           return {
             ...item,
+            smooth: true,
             stack: '总量',
             type: 'line',
           }

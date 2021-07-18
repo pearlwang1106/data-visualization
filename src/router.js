@@ -11,7 +11,7 @@ import systemRoutes from './views/system/router';
 
 const routes = [
   {
-    path: '/',
+    path: '      /',
     redirect: '/home',
   },
   // ...menuList,
@@ -21,6 +21,8 @@ const routes = [
   ...MonitorRoutes,
   ...systemRoutes
 ];
+
+console.error('routes', routes)
 
 const router = new VueRouter({
   mode: 'history',
