@@ -13,47 +13,60 @@
           el-row.home-box-left-btm
             el-col(:span="24", class="left-btm-height")
               el-card(shadow="always", class="echarts-left-btm")
-                MonitorVideo
+                //- chart-map
+                StatisticsCar
+            el-col(:span="24")
+              el-card(shadow="always", class="echarts-left-btm")
+                StatisticsVisitor
         el-col(
           :span='12',
           class='home-box-center'
         ) 
           el-row(
             class="home-center-top"
+            :gutter='20'
           )
-            el-col(
-              :span="8"
-            )
-              el-card(
-                shadow="always"
-                class="home-card"
-              )
-                span.title 浏览量
-                span.number 23,917
-            el-col(
-              :span="8"
-            )
-              el-card(
-                shadow="always"
-                class="home-card"
-              )
-                span.title 访问次数
-                span(class='number yellow') 9,175
-            el-col(
-              :span="8"
-            )
-              el-card(
-                shadow="always"
-              )
-                span.title 跳出次数
-                span(class='number green') 8,267
+            el-col(:span="8")
+              el-card.index-card(class="home-card")
+                p.title 浏览量
+                p.number 23,917
+                p.d-font-12.desc 
+                  span 周同比: 
+                  span.increase 20%↑
+                p.d-font-12.desc
+                  span 月环比:
+                  span.asc -10%↓
+            el-col(:span="8")
+              el-card.index-card.center.yellow(class="home-card")
+                p.title 访问次数
+                p.number 9,175
+                p.d-font-12.desc 
+                  span 周同比: 
+                  span.increase 20%↑
+                p.d-font-12.desc
+                  span 月环比:
+                  span.asc -10%↓
+            el-col(:span="8")
+              el-card.index-card.orange
+                p.title 跳出次数
+                p.number 8,267
+                p.d-font-12.desc 
+                  span 周同比: 
+                  span.increase 20%↑
+                p.d-font-12.desc
+                  span 月环比:
+                  span.asc -10%↓
           el-row(
             class="home-center-btm"
           )
-            el-col(:span='24', class='echart-one')
+            el-col(:span='24')
+              el-card(shadow="always", class="home-center-map")
+                //- img(src='../../assets/lbx.png' width='80%' height='50%')
+            //- el-col(:span='24', class='echart-one')
               el-card(shadow="always", class="home-center-card")
+                //- chart-map
                 StatisticsCar
-            el-col(:span="24", class='echart-one')
+            //- el-col(:span="24", class='echart-one')
               el-card(shadow="always", class="home-center-card")
                 StatisticsVisitor
         el-col(
@@ -68,6 +81,9 @@
             el-col(:span='24', class="left-btm-height")
               el-card(shadow="always", class="echarts-left-btm")
                 MonitorFacilities
+              el-card(shadow="always", class="echarts-left-btm")
+                MonitorVideo
+            
 </template>
 
 <script>
@@ -83,6 +99,8 @@ import StatisticsCar from './charts/statistics-car';
 import MonitorVideo from './charts/monitor-video.vue';
 // 设施监控
 import MonitorFacilities from './charts/monitor-facilities';
+// 仪表盘
+import ChartMap from './charts/chart-map';
 
 
 export default {
@@ -93,7 +111,8 @@ export default {
     MonitorVideo,
     StatisticsCar,
     MonitorFacilities,
-    CarPie
+    CarPie,
+    ChartMap,
   }
 }
 </script>
@@ -103,6 +122,10 @@ export default {
     width: 100%;
     height: 100%;
     
+}
+@font-face{
+	font-family: yjsz;
+	src:url('../../assets/fonts/yjsz.TTF'),
 }
 .home-box {
   width: 100%;
@@ -123,6 +146,9 @@ export default {
     // border-color: rgba(135,232,222,0.2);
     // box-shadow: 0 2px 12px 0 rgb(54 207 201  / 10%) !important;
     // box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
+    .el-card__body {
+      padding: 12px;
+    }
   }
   .home-box-row {
     height: 100%;
@@ -132,10 +158,13 @@ export default {
   }
   .home-box-left-btm {
     height: calc(100% - 240px - 20px);
+    .el-card {
+      height: 320px;
+    }
   }
-  .left-btm-height {
-    height: 100%;
-  }
+  // .left-btm-height {
+  //   // height: 100%;
+  // }
   .home-box-center {
     height: 100%;
     box-sizing: border-box;
@@ -158,39 +187,94 @@ export default {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: center;
-      text-align: center;
+      padding: 0;
+      // align-items: center;
+      // text-align: center;
     }
-    span.title {
+    .title {
+      color: #b7c9e0;
       font-size: 16px;
       font-weight: 500;
+      text-shadow: none;
       // line-height: 32px;
       // color: #f0f0f0;
     }
-    span.number {
-      font-size: 36px;
-      color: #03397d;
-      font-weight: 700;
+    .index-card {
+      border-left: 5px solid rgba(238, 255, 0, .5);
+      box-shadow: none;
+      padding-left: 8px;
+      // color: rgba(21, 45, 90, .8);
+      color: rgb(238, 255, 0);
+      text-shadow: 0 0 25px rgb(238, 255, 0);
+      .desc {
+        margin-top: 12px;
+        color: #fff;
+        font-weight: 700;
+        text-shadow: none;
+        &:last-child {
+          margin-top: 0;
+        }
+        .increase {
+          color: #ec6363;
+        }
+        .asc {
+          color: #17e817;
+        }
+      }
+      &.yellow {
+        border-color: rgba(0, 255, 92, .5);
+        color: rgba(0, 255, 92);
+        text-shadow: 0 0 25px rgba(0, 255, 92);
+      }
+      &.orange {
+        border-color: rgba(255, 166, 0, .5);
+        color: rgba(255, 166, 0);
+        text-shadow: 0 0 25px rgba(255, 166, 0);
+      }
     }
-    span.yellow {
-      color: #cdd066;
+    .index-card.center {
+      // background: url(../../assets/circle2.png) no-repeat;
+      background-size: 100%;
+      // color: #0ac1c7;
+      // margin-top: -20px;
     }
-    span.green {
-      color: #456f2c;
+    .number {
+      font-family: yjsz;
+      font-size: 40px;
+      line-height: 30px;
     }
+    // span.yellow {
+    //   color: #cdd066;
+    // }
+    // span.green {
+    //   color: #456f2c;
+    // }
+  }
+  .home-center-map {
+    // width:5.18rem;
+    // top:1.07rem;
+    // left: 1.4rem;
+    z-index: 1;
+    width: 100%;
+    height: 500px;
+    background: url(../../assets/lbx.png) no-repeat;
+    background-size: 90%;
+    background-position: center;
+    box-shadow: none!important;
+    animation: myfirst 10s infinite linear;
   }
   .home-center-btm{
     height: calc(100% - 106px);
     box-sizing: border-box;
   }
   .home-card {
-    margin-right: 20px;
+    // margin-right: 20px;
     height: 106px;
     box-sizing: border-box;
   }
   .echarts-left-btm {
     margin-top: 20px;
-    height: calc(100% - 22px);
+    height: 300px;
     .el-card__body{
       height: 100%;
       box-sizing: border-box;
@@ -203,6 +287,12 @@ export default {
       height: 100%;
       box-sizing: border-box;
     }
+  }
+
+  @keyframes myfirst
+  {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(-359deg);}
   }
 }
 </style>

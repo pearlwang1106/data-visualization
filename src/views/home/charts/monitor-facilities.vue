@@ -4,6 +4,7 @@
 </template>
 
 <script>
+// import * as echarts from 'echarts';
 import Charts from '../../../components/charts/index';
 import { CHART_OPTIONS, HOME_CHART_OPTIONS } from '../../../utils/chart';
 
@@ -54,12 +55,19 @@ export default {
                     dimension: 0,
                     inRange: {
                         // color: ['#93c555']
-                        color: ['#334f65']
-                    }
+                        color: ['#20dbfd']
+                    },
                 },
                 series: [
                     {
                         type: 'bar',
+                        itemStyle: {
+                            normal: {
+                                //柱形图圆角，初始化效果
+                                barBorderRadius:[0, 20, 20, 0],
+                                opacity: 0.6,
+                            }
+                        },
                         encode: {
                             // Map the "amount" column to X axis.
                             x: 'amount',

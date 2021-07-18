@@ -4,6 +4,7 @@
 </template>
 
 <script>
+import * as echarts from 'echarts';
 import Charts from '../../../components/charts/index';
 import { CHART_OPTIONS, HOME_CHART_OPTIONS } from '../../../utils/chart';
 
@@ -28,7 +29,7 @@ export default {
                         type: 'category',
                         name: '日期',
                         boundaryGap: true,
-                        data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+                        data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日','周一', '周二', '周三', '周四', '周五', '周六', '周日']
                     }
                 ],
                 yAxis: [
@@ -47,9 +48,24 @@ export default {
                         type: 'bar',
                         xAxisIndex: 0,
                         yAxisIndex: 0,
+                        itemStyle: {
+                            normal: {
+                                //柱形图圆角，初始化效果
+                                barBorderRadius:[20, 20, 0, 0],
+                                color: new echarts.graphic.LinearGradient(
+                                    0, 0, 0, 1,
+                                    [
+                                        {offset: 0, color: '#83bff6'},
+                                        {offset: 0.5, color: '#188df0'},
+                                        {offset: 1, color: '#188df0'}
+                                    ]
+                                ),
+                                opacity: 0.6,
+                            }
+                        },
                         data: (function (){
                             var res = [];
-                            var len = 10;
+                            var len = 16;
                             while (len--) {
                                 res.push(Math.round(Math.random() * 1000));
                             }

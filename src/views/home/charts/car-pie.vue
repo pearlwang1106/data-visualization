@@ -44,13 +44,11 @@ export default {
                     {
                         name: '车俩统计',
                         type: 'pie',
-                        radius: ['40%', '70%'],
+                        radius: ['50%', '70%'],
                         left: '16%',
                         avoidLabelOverlap: false,
                         itemStyle: {
-                            borderRadius: 10,
-                            borderColor: '#fff',
-                            borderWidth: 0
+                            opacity: 0.9
                         },
                         label: {
                             show: false,
@@ -100,6 +98,6 @@ export default {
 <style lang="less">
 .car-pie {
     width: 100%;
-    height: 220px;
+    height: 160px;
 }
 </style>

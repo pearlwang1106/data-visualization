@@ -4,7 +4,7 @@ el-container#app.container-box(:class='isHome ? "home-page" : ""')
       el-row(style="height: 100%")
         el-col(:lg="3" :xl="1" class="head-logo")
           img(src='./assets/logo.png' width='64' height='64')
-        el-col(:lg="4" :xl="3" class="app-weather")
+        //- el-col(:lg="4" :xl="3" class="app-weather")
           iframe(
             width="300"
             scrolling="no"
@@ -12,7 +12,7 @@ el-container#app.container-box(:class='isHome ? "home-page" : ""')
             frameborder="0"
             allowtransparency="true"
             src="https://i.tianqi.com?c=code&id=34&color=%23FFFFFF&icon=1&site=14")
-        el-col(:lg="17" :xl="20")
+        //- el-col(:lg="17" :xl="20")
           el-menu(mode='horizontal' background-color='transparent' text-color='#FFF' :default-active='activeKey')
             el-menu-item(
               v-for='(item, key) in menuList'
@@ -21,7 +21,7 @@ el-container#app.container-box(:class='isHome ? "home-page" : ""')
               @click='$router.push({name: key})')
               div
                 img(:src="item.icon" width="20" height="20")
-              div {{ item.label }}
+                span {{ item.label }}
 
 
     el-main.main
@@ -72,6 +72,10 @@ body,
 p {
   margin: 0;
   padding: 0;
+}
+@font-face{
+	font-family: yjsz;
+	src:url('./assets/fonts/yjsz.TTF'),
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -180,6 +184,10 @@ p {
 }
 .d-ml {
   margin-left: 8px;
+}
+.d-font-12 {
+  font-size: 12px;
+  line-height: 20px;
 }
 .d-line-clamp1 {
   white-space: nowrap;

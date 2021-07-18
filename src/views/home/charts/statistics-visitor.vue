@@ -4,6 +4,7 @@
 </template>
 
 <script>
+import * as echarts from 'echarts';
 import Charts from '../../../components/charts/index.vue';
 import { CHART_OPTIONS, HOME_CHART_OPTIONS } from '../../../utils/chart';
 
@@ -48,7 +49,70 @@ export default {
                         emphasis: {
                             focus: 'series'
                         },
+                        smooth: true,
+                        itemStyle: {
+                            normal: {
+                                color: '#030e61',
+                                //柱形图圆角，初始化效果
+                                // color: new echarts.graphic.LinearGradient(
+                                //     0, 0, 0, 1,
+                                //     [
+                                //         {offset: 0, color: '#FFF'},
+                                //         {offset: 0.3, color: '#081db7'},
+                                //         {offset: 1, color: '#030e61'}
+                                //     ]
+                                // ),
+                                opacity: 0.6,
+                            }
+                        },
                         data: [1200, 1322, 1021, 1340, 990, 1230, 1120]
+                    },
+                    {
+                        name: '车辆梳理',
+                        type: 'line',
+                        stack: '总量',
+                        areaStyle: {},
+                        emphasis: {
+                            focus: 'series'
+                        },
+                        smooth: true,
+                        itemStyle: {
+                            normal: {
+                                //柱形图圆角，初始化效果
+                                // color: '#032c61',
+                                color: new echarts.graphic.LinearGradient(
+                                    0, 0, 0, 1,
+                                    [
+                                        {offset: 0, color: '#032c61'},
+                                        {offset: 0.4, color: 'rgba(3, 44, 97, .5)'},
+                                        {offset: 1, color: 'rgba(0, 0, 0, .1)'}
+                                    ]
+                                ),
+                                opacity: 0.6,
+                            }
+                        },
+                        data: [600, 722, 521, 640, 490, 630, 520]
+                    },
+                    {
+                        name: '测试数据',
+                        type: 'line',
+                        stack: '总量',
+                        areaStyle: {},
+                        emphasis: {
+                            focus: 'series'
+                        },
+                        smooth: true,
+                        // lineStyle: {
+                        //     width: 2,
+                        // },
+                        itemStyle: {
+                            normal: {
+                                //柱形图圆角，初始化效果
+                                color: '#02563b',
+                                opacity: 0.6,
+                            }
+                        },
+                        data: [1600, 1722, 1521, 1640, 1490, 1630, 1520]
                     }
                 ]
             }
