@@ -4,32 +4,42 @@
       .chart-container
         chart(:options='options')
       
-      p 小视频
+      p 监控视频
       el-row.d-mt(:gutter='16')
         el-col(:span='12')
-          .video-list-item(@click='handleVideoClick') 点击切换
+          .video-list-item(@click='handleVideoClick')
+            img(src="../../../assets/video.jpeg")
         el-col(:span='12')
-          .video-list-item(@click='handleVideoClick') 点击切换
+          .video-list-item(@click='handleVideoClick')
+            img(src="../../../assets/video.jpeg")
       el-row.d-mt(:gutter='16')
         el-col(:span='12')
-          .video-list-item(@click='handleVideoClick') 点击切换
+          .video-list-item(@click='handleVideoClick')
+            img(src="../../../assets/video.jpeg")
         el-col(:span='12')
-          .video-list-item(@click='handleVideoClick') 点击切换
+          .video-list-item(@click='handleVideoClick')
+            img(src="../../../assets/video.jpeg")
       el-row.d-mt(:gutter='16')
         el-col(:span='12')
-          .video-list-item(@click='handleVideoClick') 点击切换
+          .video-list-item(@click='handleVideoClick')
+            img(src="../../../assets/video.jpeg")
         el-col(:span='12')
-          .video-list-item(@click='handleVideoClick') 点击切换
+          .video-list-item(@click='handleVideoClick')
+            img(src="../../../assets/video.jpeg")
       el-row.d-mt(:gutter='16')
         el-col(:span='12')
-          .video-list-item(@click='handleVideoClick') 点击切换
+          .video-list-item(@click='handleVideoClick')
+            img(src="../../../assets/video.jpeg")
         el-col(:span='12')
-          .video-list-item(@click='handleVideoClick') 点击切换
+          .video-list-item(@click='handleVideoClick')
+            img(src="../../../assets/video.jpeg")
       el-row.d-mt(:gutter='16')
         el-col(:span='12')
-          .video-list-item(@click='handleVideoClick') 点击切换
+          .video-list-item(@click='handleVideoClick')
+            img(src="../../../assets/video.jpeg")
         el-col(:span='12')
-          .video-list-item(@click='handleVideoClick') 点击切换
+          .video-list-item(@click='handleVideoClick')
+            img(src="../../../assets/video.jpeg")
     el-col(:span='16')
       video.video-wrapper(
         height='920'
@@ -312,9 +322,13 @@ export default {
     color: #EEE;
   }
   .video-list-item {
-    padding: 16px;
-    height: 120px;
-    background-color: rgba(185, 173, 266, .3);
+    padding: 4px;
+    height: 160px;
+    // background-color: rgba(185, 173, 266, .3);
     cursor: pointer;
+    img {
+       width: 100%;
+       height: 100%;
+    }
   }
 </style>

@@ -71,7 +71,7 @@ p {
   height: 100%;
 }
 .home-page {
-  background: url('./assets/bg.jpeg') no-repeat center;
+  background: url('./assets/bg-two.png') no-repeat center;
   background-color: rgba(35, 82, 122);
   background-size: cover;
 }
@@ -161,7 +161,7 @@ p {
   margin-left: 8px;
 }
 .d-font-12 {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 20px;
 }
 .d-line-clamp1 {
