@@ -1,6 +1,7 @@
 <template lang="pug">
     div(class="category-two-box")
-        Charts(:options="chartOptions")
+      p.monitor-title 客流统计-访客统计
+      Charts(:options="chartOptions")
 </template>
 
 <script>
@@ -21,7 +22,7 @@ export default {
                 ...HOME_CHART_OPTIONS,
                 title: {
                     ...HOME_CHART_OPTIONS.title,
-                    text: '客流统计-访客统计',
+                    // text: '客流统计-访客统计',
                 },
                 color: ['#45a776'],
                 xAxis: [
@@ -53,15 +54,6 @@ export default {
                         itemStyle: {
                             normal: {
                                 color: '#030e61',
-                                //柱形图圆角，初始化效果
-                                // color: new echarts.graphic.LinearGradient(
-                                //     0, 0, 0, 1,
-                                //     [
-                                //         {offset: 0, color: '#FFF'},
-                                //         {offset: 0.3, color: '#081db7'},
-                                //         {offset: 1, color: '#030e61'}
-                                //     ]
-                                // ),
                                 opacity: 0.6,
                             }
                         },
@@ -102,9 +94,6 @@ export default {
                             focus: 'series'
                         },
                         smooth: true,
-                        // lineStyle: {
-                        //     width: 2,
-                        // },
                         itemStyle: {
                             normal: {
                                 //柱形图圆角，初始化效果
@@ -137,9 +126,15 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .category-two-box {
     width: 100%;
     height: 100%;
+}
+.monitor-title {
+    font-size: 40px;
+    line-height: 60px;
+    font-weight: 500;
+    padding: 0 8px;
 }
 </style>

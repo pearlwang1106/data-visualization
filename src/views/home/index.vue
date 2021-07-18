@@ -18,8 +18,8 @@
                 StatisticsCar
             el-col(:span="24")
               el-card(shadow="always", class="echarts-left-btm")
-                CustomIndex
-                //- StatisticsVisitor
+                //- CustomIndex
+                StatisticsVisitor
         el-col(
           :span='12',
           class='home-box-center'
@@ -27,6 +27,41 @@
           el-row(
             class="home-center-top"
             :gutter='20'
+          )
+            el-col(:span="8")
+              el-card.index-card(class="home-card")
+                p.title 浏览量
+                p.number 23,917
+                p.d-font-12.desc 
+                  span 周同比: 
+                  span.increase 20%↑
+                p.d-font-12.desc
+                  span 月环比:
+                  span.asc -10%↓
+            el-col(:span="8")
+              el-card.index-card.center.yellow(class="home-card")
+                p.title 访问次数
+                p.number 9,175
+                p.d-font-12.desc 
+                  span 周同比: 
+                  span.increase 20%↑
+                p.d-font-12.desc
+                  span 月环比:
+                  span.asc -10%↓
+            el-col(:span="8")
+              el-card.index-card.orange
+                p.title 跳出次数
+                p.number 8,267
+                p.d-font-12.desc 
+                  span 周同比: 
+                  span.increase 20%↑
+                p.d-font-12.desc
+                  span 月环比:
+                  span.asc -10%↓
+          el-row(
+            class="home-center-top-2"
+            :gutter='20'
+            style='{margin-top: "20px"}'
           )
             el-col(:span="8")
               el-card.index-card(class="home-card")
@@ -184,7 +219,7 @@ export default {
   .home-box-left-btm {
     height: calc(100% - 240px - 20px);
     .el-card {
-      height: 360px;
+      height: 340px;
     }
   }
   // .left-btm-height {
@@ -205,9 +240,11 @@ export default {
     height: 100%;
     box-sizing: border-box;
   }
-  .home-center-top {
+  .home-center-top,
+  .home-center-top-2 {
     padding-left: 140px;
     padding-right: 140px;
+    padding-top: 100px;
     .el-card__body {
       display: flex;
       flex-direction: column;
@@ -225,6 +262,7 @@ export default {
       // color: #f0f0f0;
     }
     .index-card {
+      transform: scale(1.8);
       border-left: 8px solid rgba(238, 255, 0, .5);
       box-shadow: none;
       padding-left: 8px;
@@ -276,6 +314,9 @@ export default {
     // span.green {
     //   color: #456f2c;
     // }
+  }
+  .home-center-top-2 {
+    margin-top: 100px;
   }
   .home-center-map {
     // width:5.18rem;
@@ -349,6 +390,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+    transform: scale(1.3);
     cursor: pointer;
     &:not(:last-child) {
       margin-right: 40px;
@@ -362,7 +404,7 @@ export default {
       background-size: contain;
     }
     &:hover {
-      transform: scale(1.2);
+      transform: scale(1.6);
     }
   }
 }
