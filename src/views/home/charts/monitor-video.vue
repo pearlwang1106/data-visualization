@@ -78,7 +78,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scope>
 .category-three-box {
     width: 100%;
     height: 100%;
